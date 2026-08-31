@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BrukBłysk - Profesjonalne mycie kostki brukowej. Sprzęt spalinowy. Radom, Grójec i okolice.">
+    <title>BrukBłysk | Przywracamy Fabryczny Wygląd Twojej Posesji</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/HERO.png">
+    
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            padding-top: 60px;
+        }
+        
+        /* Sticky Navbar */
+        .sticky-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(132, 250, 176, 0.2);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-logo {
+            height: 40px;
+            width: auto;
+        }
+        
+        .navbar-phone {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #0a0a0a;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-phone:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(132, 250, 176, 0.4);
+        }
+        
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        /* Hero Video Background */
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(20, 20, 20, 0.8) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Neon Accent */
+        .neon-accent {
+            color: #84fab0;
+            text-shadow: 0 0 20px rgba(132, 250, 176, 0.5);
+        }
+        
+        /* Button Hover Effects */
+        .btn-primary {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #0a0a0a;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(132, 250, 176, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(132, 250, 176, 0.5);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #84fab0;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 2px solid #84fab0;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(132, 250, 176, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Badge */
+        .badge {
+            background: rgba(132, 250, 176, 0.2);
+            color: #84fab0;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(132, 250, 176, 0.3);
+            display: inline-block;
+        }
+        
+        /* Service Cards */
+        .service-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(132, 250, 176, 0.2);
+        }
+        
+        /* Feature Icons */
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0a0a0a;
+            margin-bottom: 1rem;
+        }
+        
+        /* Steps */
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #0a0a0a;
+            margin: 0 auto 1.5rem;
+        }
+        
+        /* Floating Phone Button */
+        .floating-phone {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a0a0a;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(132, 250, 176, 0.5);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+        }
+        
+        .floating-phone:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(132, 250, 176, 0.7);
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(132, 250, 176, 0.5);
+            }
+            50% {
+                box-shadow: 0 4px 40px rgba(132, 250, 176, 0.8);
+            }
+        }
+        
+        /* Form Styling */
+        input, textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 1rem;
+            border-radius: 10px;
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #84fab0;
+            box-shadow: 0 0 20px rgba(132, 250, 176, 0.3);
+        }
+        
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        
+        /* Nav Link Hover */
+        .nav-link:hover {
+            color: #84fab0;
+        }
+            .floating-phone {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.75rem;
+            }
+            
+            h1 {
+                font-size: 2rem !important;
+            }
+            
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navbar with Logo -->
+    <nav class="sticky-navbar">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html">
+                <img src="assets/HERO.png" alt="BrukBłysk" class="navbar-logo">
+            </a>
+            
+            <!-- Desktop Navigation Menu -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="index.html" class="nav-link text-white transition font-semibold">Strona główna</a>
+                <a href="galeria.html" class="nav-link text-white transition font-semibold">Galeria</a>
+                <a href="cennik.html" class="nav-link text-white transition font-semibold">Cennik</a>
+                <a href="index.html#kontakt" class="nav-link text-white transition font-semibold">Kontakt</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="tel:+48881578996" class="navbar-phone">
+                    <i class="fas fa-phone-alt"></i>
+                    <span class="hidden sm:inline ml-2">+48 881 578 996</span>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black bg-opacity-95 border-t border-gray-800">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="nav-link block text-white transition font-semibold py-2">
+                    <i class="fas fa-home mr-3"></i>Strona główna
+                </a>
+                <a href="galeria.html" class="nav-link block text-white transition font-semibold py-2">
+                    <i class="fas fa-images mr-3"></i>Galeria
+                </a>
+                <a href="cennik.html" class="nav-link block text-white transition font-semibold py-2">
+                    <i class="fas fa-tag mr-3"></i>Cennik
+                </a>
+                <a href="index.html#kontakt" class="nav-link block text-white transition font-semibold py-2">
+                    <i class="fas fa-phone mr-3"></i>Kontakt
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center px-4 py-20">
+        <!-- Video Background (można dodać własny film w /assets) -->
+        <div class="hero-video-container">
+            <!-- Gdy dodasz film, odkomentuj:
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="assets/hero-video.mp4" type="video/mp4">
+            </video>
+            -->
+            <!-- Tymczasowe tło gradientowe -->
+            <div style="position: absolute; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);"></div>
+        </div>
+        
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content max-w-6xl mx-auto text-center" data-aos="fade-up">
+            <!-- Logo -->
+            <div class="mb-8" data-aos="zoom-in">
+                <img src="assets/HERO.png" alt="BrukBłysk Logo" class="mx-auto" style="max-width: 300px; width: 100%; height: auto;">
+            </div>
+            
+            <div class="badge mb-6" data-aos="fade-down" data-aos-delay="100">
+                <i class="fas fa-star mr-2"></i>BrukBłysk - Profesjonalne czyszczenie kostki
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                Przywracamy <span class="gradient-text">fabryczny wygląd</span><br>Twojej posesji.
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Profesjonalne mycie kostki brukowej. Niezależność od prądu, sprzęt profesjonalny spalinowy, 0 bałaganu.
+            </p>
+            
+            <div class="flex justify-center items-center" data-aos="fade-up" data-aos-delay="300">
+                <a href="tel:+48881578996" class="btn-primary">
+                    <i class="fas fa-calculator"></i>
+                    Szybka Wycena - Dzwoń!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Section -->
+    <section id="before-after" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">
+                    Zobacz <span class="gradient-text">Nasze Realizacje</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Efekty naszej pracy mówią same za siebie</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto text-center" data-aos="zoom-in" data-aos-delay="200">
+                <!-- Gallery Preview Box -->
+                <div class="glass rounded-3xl p-12 mb-8">
+                    <div class="mb-6">
+                        <i class="fas fa-images text-7xl gradient-text" style="filter: drop-shadow(0 0 20px rgba(132, 250, 176, 0.5));"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4">Galeria Realizacji</h3>
+                    <p class="text-gray-400 text-lg mb-8">
+                        Sprawdź zdjęcia przed i po myciu kostki brukowej.<br>
+                        Zobacz jak transformujemy posesje naszych klientów!
+                    </p>
+                    <a href="galeria.html" class="btn-primary text-xl inline-flex">
+                        <i class="fas fa-arrow-right"></i>
+                        Zobacz Galerię
+                    </a>
+                </div>
+                
+                <p class="text-gray-500 text-sm">
+                    <i class="fas fa-clock mr-2"></i>Regularnie dodajemy nowe zdjęcia z realizacji
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="uslugi" class="py-20 px-4 bg-gradient-to-b from-transparent to-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <!-- Small Logo -->
+            <div class="text-center mb-8" data-aos="fade-down">
+                <img src="assets/HERO.png" alt="BrukBłysk" class="mx-auto" style="max-width: 120px; opacity: 0.6;">
+            </div>
+            
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">
+                    Nasze <span class="gradient-text">Usługi</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Kompleksowe czyszczenie Twojej posesji</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <!-- Service 1 -->
+                <div class="glass rounded-3xl p-8 service-card mb-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4 text-center">Mycie Kostki Brukowej<br>& Zabezpieczanie</h3>
+                    <p class="text-gray-400 mb-6 text-center text-lg">
+                        Usuwamy mech, porosty, plamy z oleju oraz piaskujemy fugi. Twój podjazd będzie wyglądał jak nowy i zyska ochronę na lata.
+                    </p>
+                    <ul class="text-base text-gray-400 space-y-3 max-w-md mx-auto">
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Usuwanie mchu i porostów</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Piaskowanie fug</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Impregnacja powierzchni</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Długotrwała ochrona przed zabrudzeniami</li>
+                    </ul>
+                </div>
+                
+                <!-- Pricing CTA -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <a href="cennik.html" class="btn-primary text-xl inline-flex">
+                        <i class="fas fa-tag"></i>
+                        Zobacz Cennik
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="dlaczego-my" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">
+                    <span class="gradient-text">Dlaczego</span> My?
+                </h2>
+                <p class="text-gray-400 text-lg">Co nas wyróżnia na rynku</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Niezależność 100%</h3>
+                    <p class="text-gray-400 text-sm">
+                        Sprzęt profesjonalny - działamy bez prądu u klienta.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Zero Oczyszczania Ścian</h3>
+                    <p class="text-gray-400 text-sm">
+                        Profesjonalne talerze czyszczące – brak bryzgania błotem na ściany.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Dojazd</h3>
+                    <p class="text-gray-400 text-sm">
+                        <strong>Radom</strong> i okolice do 50km<br>
+                        <strong>Grójec</strong> i okolice do 25km<br>
+                        <strong>Białobrzegi</strong> i okolice do 30km
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 px-4 bg-gradient-to-b from-transparent to-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Stat 1 -->
+                <div class="glass rounded-3xl p-8 text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-6xl font-black gradient-text mb-4">31</div>
+                    <h3 class="text-xl font-bold mb-2">Zrealizowanych Projektów</h3>
+                    <p class="text-gray-500 text-sm">Zadowoleni klienci w Radomiu i Grójcu</p>
+                </div>
+                
+                <!-- Stat 2 -->
+                <div class="glass rounded-3xl p-8 text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-6xl font-black gradient-text mb-4">100%</div>
+                    <h3 class="text-xl font-bold mb-2">Zadowolonych Klientów</h3>
+                    <p class="text-gray-500 text-sm">Każdy projekt wykonany z pełnym zaangażowaniem</p>
+                </div>
+                
+                <!-- Stat 3 -->
+                <div class="glass rounded-3xl p-8 text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-6xl font-black gradient-text mb-4">4.94★</div>
+                    <h3 class="text-xl font-bold mb-2">Ocena Klientów</h3>
+                    <p class="text-gray-500 text-sm">Najwyższe standardy jakości i obsługi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">
+                    Co mówią <span class="gradient-text">Nasi Klienci</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Opinie osób, które nam zaufały</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass rounded-3xl p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star neon-accent"></i>
+                        <i class="fas fa-star neon-accent"></i>
+                        <i class="fas fa-star neon-accent"></i>
+                        <i class="fas fa-star neon-accent"></i>
+                        <i class="fas fa-star neon-accent"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Świetna robota! Podjazd wygląda jak nowy. Panowie pracowali sprawnie i profesjonalnie. Polecam!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 border-2 border-lime-400 flex items-center justify-center text-lime-400 font-bold text-xl mr-4">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Marek K.</h4>
+                            <p class="text-gray-500 text-sm">Radom</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="glass rounded-3xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star neon-accent"></i>
+                        <i class="fas fa-star neon-accent"></i>
+                        <i class="fas fa-star neon-accent"></i>
+                        <i class="fas fa-star neon-accent"></i>
+                        <i class="fas fa-star neon-accent"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Nie spodziewałam się takiego efektu! Kostka brukowa odzyskała kolor. Bardzo szybka realizacja."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 border-2 border-lime-400 flex items-center justify-center text-lime-400 font-bold text-xl mr-4">
+                            A
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Anna W.</h4>
+                            <p class="text-gray-500 text-sm">Grójec</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="glass rounded-3xl p-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star neon-accent"></i>
+                        <i class="fas fa-star neon-accent"></i>
+                        <i class="fas fa-star neon-accent"></i>
+                        <i class="fas fa-star neon-accent"></i>
+                        <i class="fas fa-star neon-accent"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Konkretni ludzie, rzetelna praca. Cena adekwatna do jakości. Z pewnością wrócę!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 border-2 border-lime-400 flex items-center justify-center text-lime-400 font-bold text-xl mr-4">
+                            P
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Piotr S.</h4>
+                            <p class="text-gray-500 text-sm">Radom</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area Map Section -->
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-transparent">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">
+                    <span class="gradient-text">Obszar</span> Działania
+                </h2>
+                <p class="text-gray-400 text-lg">Gdzie świadczymy nasze usługi</p>
+            </div>
+            
+            <!-- Map Placeholder with Visual -->
+            <div class="glass rounded-3xl overflow-hidden mb-8 p-8" data-aos="zoom-in">
+                <div class="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-12 text-center">
+                    <i class="fas fa-map-marked-alt text-8xl text-gray-700 mb-6"></i>
+                    <h3 class="text-3xl font-bold mb-4">Działamy w trzech regionach</h3>
+                    <div class="flex flex-wrap justify-center gap-4 mb-6">
+                        <span class="badge text-lg">📍 Radom - promień ~50km</span>
+                        <span class="badge text-lg">📍 Grójec - promień ~25km</span>
+                        <span class="badge text-lg">📍 Białobrzegi - promień ~30km</span>
+                    </div>
+                    <p class="text-gray-400 max-w-2xl mx-auto mb-4">
+                        Obsługujemy szeroki obszar mazowsza środkowego. Podane odległości są orientacyjne - nie są sztywne! Jedziemy również dalej, wszystko jest do dogadania.
+                    </p>
+                    <p class="text-lime-400 font-semibold">
+                        <i class="fas fa-phone-alt mr-2"></i>Zadzwoń - ustalimy szczegóły dojazdu!
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Radom Area -->
+                <div class="glass rounded-3xl p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-6">
+                        <div class="feature-icon mr-4" style="margin-bottom: 0;">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Radom</h3>
+                            <p class="text-gray-400">i okolice do 50km</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Radom - centrum miasta</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Iłża, Skaryszew, Przysucha</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Zwoleń, Jedlińsk, Wolanów</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>I wiele innych miejscowości</li>
+                    </ul>
+                </div>
+                
+                <!-- Grójec Area -->
+                <div class="glass rounded-3xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-6">
+                        <div class="feature-icon mr-4" style="margin-bottom: 0;">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Grójec</h3>
+                            <p class="text-gray-400">i okolice do 25km</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Grójec - centrum miasta</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Mogielnica, Warka</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Nowe Miasto nad Pilicą</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Okoliczne wsie i gminy</li>
+                    </ul>
+                </div>
+                
+                <!-- Białobrzegi Area -->
+                <div class="glass rounded-3xl p-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-6">
+                        <div class="feature-icon mr-4" style="margin-bottom: 0;">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Białobrzegi</h3>
+                            <p class="text-gray-400">i okolice do 30km</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Białobrzegi - centrum</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Stromiec, Radzanów</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Wyśmierzyce, Stara Błotnica</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Gminy okoliczne</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p class="text-center text-gray-500 mt-8">
+                <i class="fas fa-info-circle mr-2"></i>Nie widzisz swojej miejscowości? <a href="tel:+48881578996" class="neon-accent hover:underline font-bold">Zadzwoń</a> - odległości są orientacyjne, jedziemy dalej i wszystko jest do dogadania!
+            </p>
+        </div>
+    </section>
+
+    <!-- Availability Hours Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass rounded-3xl p-8 md:p-12" data-aos="zoom-in">
+                <div class="text-center mb-8">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-black mt-6 mb-4">
+                        <span class="gradient-text">Godziny</span> Dostępności
+                    </h2>
+                    <p class="text-gray-400">Kiedy najlepiej do nas dzwonić</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-black bg-opacity-30 rounded-2xl p-6">
+                        <h4 class="font-bold text-xl mb-4 flex items-center">
+                            <i class="fas fa-calendar-week neon-accent mr-3"></i>
+                            Poniedziałek - Piątek
+                        </h4>
+                        <p class="text-3xl font-black gradient-text">7:00 - 21:00</p>
+                    </div>
+                    
+                    <div class="bg-black bg-opacity-30 rounded-2xl p-6">
+                        <h4 class="font-bold text-xl mb-4 flex items-center">
+                            <i class="fas fa-calendar-day neon-accent mr-3"></i>
+                            Sobota
+                        </h4>
+                        <p class="text-3xl font-black gradient-text">8:00 - 17:00</p>
+                    </div>
+                    
+                    <div class="bg-black bg-opacity-30 rounded-2xl p-6 md:col-span-2">
+                        <h4 class="font-bold text-xl mb-4 flex items-center justify-center">
+                            <i class="fas fa-calendar-day neon-accent mr-3"></i>
+                            Niedziela
+                        </h4>
+                        <p class="text-3xl font-black gradient-text text-center">8:00 - 17:00</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <p class="text-sm text-gray-400">
+                        💡 <strong>Pilna sprawa?</strong> Zostaw SMS, oddzwonimy w pierwszej dostępnej chwili!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="jak-dzialamy" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-transparent">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">
+                    Jak <span class="gradient-text">Działamy?</span>
+                </h2>
+                <p class="text-gray-400 text-lg">3 proste kroki do czystej posesji</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Step 1 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">01</div>
+                    <h3 class="text-2xl font-bold mb-4">Wyślij Zdjęcie</h3>
+                    <p class="text-gray-400">
+                        Zrób zdjęcie podjazdu i wyślij SMS/MMS lub zadzwoń. Prosty start!
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">02</div>
+                    <h3 class="text-2xl font-bold mb-4">Wstępna Wycena</h3>
+                    <p class="text-gray-400">
+                        Otrzymujesz wstępną wycenę w ciągu 24h. Na podstawie zdjęć ocenimy zakres prac i umówimy się na spotkanie, aby zobaczyć wszystko na żywo i dać ostateczną wycenę.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">03</div>
+                    <h3 class="text-2xl font-bold mb-4">Błysk & Perfekcja</h3>
+                    <p class="text-gray-400">
+                        Przyjeżdżamy, myjemy, piaskujemy i zostawiamy błysk. Tak po prostu!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontakt" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Logo above contact -->
+            <div class="text-center mb-8" data-aos="zoom-in">
+                <img src="assets/HERO.png" alt="BrukBłysk" class="mx-auto" style="max-width: 180px;">
+            </div>
+            
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">
+                    Gotowy na <span class="gradient-text">Transformację?</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Skontaktuj się z BrukBłysk – wycena jest darmowa</p>
+            </div>
+            
+            <div class="glass rounded-3xl p-8 md:p-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-center">
+                    <h3 class="text-3xl font-bold mb-8">Zadzwoń lub napisz!</h3>
+                    
+                    <div class="flex flex-col gap-6 max-w-md mx-auto">
+                        <a href="tel:+48881578996" class="btn-primary justify-center text-xl py-4">
+                            <i class="fas fa-phone-alt"></i>
+                            +48 881 578 996
+                        </a>
+                        
+                        <a href="mailto:brukblyskradom@gmail.com" class="btn-secondary justify-center text-lg py-3">
+                            <i class="fas fa-envelope"></i>
+                            brukblyskradom@gmail.com
+                        </a>
+                        
+                        <div class="grid grid-cols-3 gap-4">
+                            <a href="https://wa.me/48881578996?text=Cześć!%20Chcę%20wycenę%20mycia%20kostki%20brukowej" class="btn-secondary justify-center py-3" title="WhatsApp">
+                                <i class="fab fa-whatsapp text-2xl"></i>
+                            </a>
+                            <a href="https://instagram.com/" target="_blank" class="btn-secondary justify-center py-3" title="Instagram">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </a>
+                            <a href="https://facebook.com/" target="_blank" class="btn-secondary justify-center py-3" title="Facebook">
+                                <i class="fab fa-facebook text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-500 mt-8 text-sm">
+                        Odpowiadamy w ciągu 24h • Darmowa wycena
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto text-center text-gray-500 text-sm">
+            <img src="assets/HERO.png" alt="BrukBłysk Logo" class="mx-auto mb-4" style="max-width: 200px; width: 100%; height: auto; opacity: 0.8;">
+            <p>&copy; 2026 BrukBłysk. Wszystkie prawa zastrzeżone.</p>
+            <p class="mt-2">Radom (+50km) | Grójec (+25km) | Białobrzegi (+30km)</p>
+        </div>
+    </footer>
+
+    <!-- Floating Phone Button -->
+    <a href="tel:+48881578996" class="floating-phone" title="Zadzwoń">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS Animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+        
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

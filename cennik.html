@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BrukBłysk - Cennik usług mycia kostki brukowej. Od 13-20 zł/m². Radom, Grójec, Białobrzegi.">
+    <title>Cennik | BrukBłysk</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/HERO.png">
+    
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            padding-top: 60px;
+        }
+        
+        /* Sticky Navbar */
+        .sticky-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(132, 250, 176, 0.2);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-logo {
+            height: 40px;
+            width: auto;
+        }
+        
+        .navbar-phone {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #0a0a0a;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-phone:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(132, 250, 176, 0.4);
+        }
+        
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Neon Accent */
+        .neon-accent {
+            color: #84fab0;
+            text-shadow: 0 0 20px rgba(132, 250, 176, 0.5);
+        }
+        
+        /* Button Styles */
+        .btn-secondary {
+            background: transparent;
+            color: #84fab0;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid #84fab0;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(132, 250, 176, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Nav Link Hover */
+        .nav-link:hover {
+            color: #84fab0;
+        }
+        
+        /* Feature Icon */
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #0a0a0a;
+            margin: 0 auto 1.5rem;
+        }
+        
+        /* Floating Phone Button */
+        .floating-phone {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a0a0a;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(132, 250, 176, 0.5);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+        }
+        
+        .floating-phone:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(132, 250, 176, 0.7);
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(132, 250, 176, 0.5);
+            }
+            50% {
+                box-shadow: 0 4px 40px rgba(132, 250, 176, 0.8);
+            }
+        }
+        
+        /* Price Badge */
+        .price-badge {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #0a0a0a;
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            font-size: 3rem;
+            font-weight: 900;
+            display: inline-block;
+            box-shadow: 0 8px 30px rgba(132, 250, 176, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .floating-phone {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.75rem;
+            }
+            
+            .price-badge {
+                font-size: 2rem;
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navbar with Logo -->
+    <nav class="sticky-navbar">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html">
+                <img src="assets/HERO.png" alt="BrukBłysk" class="navbar-logo">
+            </a>
+            
+            <!-- Desktop Navigation Menu -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="index.html" class="nav-link text-white transition font-semibold">Strona główna</a>
+                <a href="galeria.html" class="nav-link text-white transition font-semibold">Galeria</a>
+                <a href="cennik.html" class="nav-link text-white transition font-semibold">Cennik</a>
+                <a href="index.html#kontakt" class="nav-link text-white transition font-semibold">Kontakt</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="tel:+48881578996" class="navbar-phone">
+                    <i class="fas fa-phone-alt"></i>
+                    <span class="hidden sm:inline ml-2">+48 881 578 996</span>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black bg-opacity-95 border-t border-gray-800">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="nav-link block text-white transition font-semibold py-2">
+                    <i class="fas fa-home mr-3"></i>Strona główna
+                </a>
+                <a href="galeria.html" class="nav-link block text-white transition font-semibold py-2">
+                    <i class="fas fa-images mr-3"></i>Galeria
+                </a>
+                <a href="cennik.html" class="nav-link block text-white transition font-semibold py-2">
+                    <i class="fas fa-tag mr-3"></i>Cennik
+                </a>
+                <a href="index.html#kontakt" class="nav-link block text-white transition font-semibold py-2">
+                    <i class="fas fa-phone mr-3"></i>Kontakt
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pricing Header -->
+    <section class="py-20 px-4">
+        <div class="max-w-5xl mx-auto">
+            <!-- Back Button -->
+            <div class="mb-8" data-aos="fade-down">
+                <a href="index.html" class="btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Powrót do strony głównej
+                </a>
+            </div>
+            
+            <!-- Logo -->
+            <div class="text-center mb-8" data-aos="zoom-in">
+                <img src="assets/HERO.png" alt="BrukBłysk" class="mx-auto" style="max-width: 180px;">
+            </div>
+            
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h1 class="text-5xl md:text-6xl font-black mb-4">
+                    <span class="gradient-text">Cennik</span> Usług
+                </h1>
+                <p class="text-gray-400 text-xl">Przejrzyste ceny, bez ukrytych kosztów</p>
+            </div>
+            
+            <!-- Main Pricing Card -->
+            <div class="glass rounded-3xl p-8 md:p-12 mb-12" data-aos="zoom-in" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-road"></i>
+                </div>
+                
+                <h2 class="text-3xl md:text-4xl font-black text-center mb-6">
+                    Kompleksowe Czyszczenie<br>Kostki Brukowej
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="price-badge">13-20 zł / m²</div>
+                </div>
+                
+                <p class="text-center text-gray-400 mb-8 text-lg">
+                    Cena końcowa ustalana indywidualnie w zależności od wielkości powierzchni i lokalizacji
+                </p>
+                
+                <!-- What's Included -->
+                <div class="bg-black bg-opacity-30 rounded-2xl p-6 md:p-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center justify-center">
+                        <i class="fas fa-check-circle neon-accent mr-3"></i>
+                        W cenie pakietu:
+                    </h3>
+                    
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-start">
+                            <i class="fas fa-spray-can neon-accent mr-4 mt-1 text-xl"></i>
+                            <span><strong>Mycie spalinowe wysokim ciśnieniem</strong> – talerz stalowy INOX, zero zachlapanych ścian</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-shield-virus neon-accent mr-4 mt-1 text-xl"></i>
+                            <span><strong>Oprysk biobójczą chemią</strong> – wypalanie mchu, porostów i zarodników u źródła</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-oil-can neon-accent mr-4 mt-1 text-xl"></i>
+                            <span><strong>Usuwanie plam olejowych i osadów</strong> – dokładne czyszczenie trudnych zabrudzeń</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-fill neon-accent mr-4 mt-1 text-xl"></i>
+                            <div>
+                                <strong>Uzupełnianie fug piaskiem kwarcowym</strong> (opcjonalnie)<br>
+                                <span class="text-gray-500 text-sm">Spoinowanie suchym, czystym piaskiem – cena wliczona w m² jeśli wybierzesz tę opcję</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Additional Info -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Transport Info -->
+                <div class="glass rounded-3xl p-8" data-aos="fade-right">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-lime-400 to-cyan-400 rounded-xl flex items-center justify-center text-black text-2xl mr-4">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Dojazd</h3>
+                    </div>
+                    <p class="text-gray-300 text-lg">
+                        Koszt dojazdu wliczany <strong class="neon-accent">indywidualnie w cenę za m²</strong> w zależności od lokalizacji i odległości.
+                    </p>
+                </div>
+                
+                <!-- Individual Pricing -->
+                <div class="glass rounded-3xl p-8" data-aos="fade-left">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-lime-400 to-cyan-400 rounded-xl flex items-center justify-center text-black text-2xl mr-4">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Wycena</h3>
+                    </div>
+                    <p class="text-gray-300 text-lg">
+                        Każda realizacja wyceniana <strong class="neon-accent">indywidualnie</strong>. Zadzwoń, wyślij zdjęcie – otrzymasz dokładną wycenę!
+                    </p>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="text-center mt-16" data-aos="fade-up">
+                <div class="glass rounded-3xl p-8 md:p-12">
+                    <h3 class="text-3xl font-bold mb-6">Potrzebujesz dokładnej wyceny?</h3>
+                    <p class="text-gray-400 mb-8 text-lg">
+                        Zadzwoń lub wyślij zdjęcie swojego podjazdu – odpowiemy w ciągu 24h!
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="tel:+48881578996" class="navbar-phone text-xl justify-center">
+                            <i class="fas fa-phone-alt"></i>
+                            +48 881 578 996
+                        </a>
+                        <a href="mailto:brukblyskradom@gmail.com" class="btn-secondary text-lg justify-center">
+                            <i class="fas fa-envelope"></i>
+                            brukblyskradom@gmail.com
+                        </a>
+                    </div>
+                    
+                    <!-- Social Media Icons -->
+                    <div class="flex justify-center gap-4 mt-8">
+                        <a href="tel:+48881578996" class="btn-secondary py-4 px-6" title="Zadzwoń">
+                            <i class="fas fa-phone-alt text-2xl"></i>
+                        </a>
+                        <a href="https://instagram.com/" target="_blank" class="btn-secondary py-4 px-6" title="Instagram">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="https://facebook.com/" target="_blank" class="btn-secondary py-4 px-6" title="Facebook">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-gray-800 mt-20">
+        <div class="max-w-6xl mx-auto text-center text-gray-500 text-sm">
+            <img src="assets/HERO.png" alt="BrukBłysk Logo" class="mx-auto mb-4" style="max-width: 200px; width: 100%; height: auto; opacity: 0.8;">
+            <p>&copy; 2026 BrukBłysk. Wszystkie prawa zastrzeżone.</p>
+            <p class="mt-2">Radom (+50km) | Grójec (+25km) | Białobrzegi (+30km)</p>
+        </div>
+    </footer>
+
+    <!-- Floating Phone Button -->
+    <a href="tel:+48881578996" class="floating-phone" title="Zadzwoń">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS Animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+    </script>
+</body>
+</html>
