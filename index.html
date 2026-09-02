@@ -39,7 +39,7 @@
             background: #0a0a0a;
             color: #ffffff;
             overflow-x: hidden;
-            padding-top: 60px;
+            padding-top: 116px; /* Banner 56px + Navbar 60px */
         }
         
         /* Sticky Navbar */
@@ -312,8 +312,74 @@
 </head>
 <body>
 
+    <!-- Promocyjny Banner z animacją -->
+    <div id="promo-banner" class="fixed top-0 left-0 right-0 z-50" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); padding: 16px 0; overflow: hidden; box-shadow: 0 4px 20px rgba(132, 250, 176, 0.4);">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span class="marquee-item">
+                    <i class="fas fa-fire text-red-600 text-xl"></i>
+                    <strong>🎉 PROMOCJA DO KOŃCA MARCA!</strong>
+                    <span class="mx-3">•</span>
+                    <strong>-10% NA KAŻDE ZLECENIE</strong>
+                    <span class="mx-3">•</span>
+                    <i class="fas fa-phone-alt"></i>
+                    <strong>ZADZWOŃ: +48 881 578 996</strong>
+                    <span class="mx-3">•</span>
+                </span>
+                <span class="marquee-item">
+                    <i class="fas fa-fire text-red-600 text-xl"></i>
+                    <strong>🎉 PROMOCJA DO KOŃCA MARCA!</strong>
+                    <span class="mx-3">•</span>
+                    <strong>-10% NA KAŻDE ZLECENIE</strong>
+                    <span class="mx-3">•</span>
+                    <i class="fas fa-phone-alt"></i>
+                    <strong>ZADZWOŃ: +48 881 578 996</strong>
+                    <span class="mx-3">•</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .marquee {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+        
+        .marquee-item {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 900;
+            color: #0a0a0a;
+            padding: 0 40px;
+        }
+        
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .marquee-item {
+                font-size: 14px;
+                padding: 0 20px;
+            }
+        }
+    </style>
+
     <!-- Sticky Navbar with Logo -->
-    <nav class="sticky-navbar">
+    <nav class="sticky-navbar" style="top: 56px;">
         <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
             <a href="index.html">
                 <img src="assets/HERO.png" alt="BrukBłysk" class="navbar-logo">
@@ -324,6 +390,7 @@
                 <a href="index.html" class="nav-link text-white transition font-semibold">Strona główna</a>
                 <a href="galeria.html" class="nav-link text-white transition font-semibold">Galeria</a>
                 <a href="cennik.html" class="nav-link text-white transition font-semibold">Cennik</a>
+                <a href="index.html#mapa" class="nav-link text-white transition font-semibold">Obszar</a>
                 <a href="index.html#kontakt" class="nav-link text-white transition font-semibold">Kontakt</a>
             </div>
             
@@ -351,6 +418,9 @@
                 </a>
                 <a href="cennik.html" class="nav-link block text-white transition font-semibold py-2">
                     <i class="fas fa-tag mr-3"></i>Cennik
+                </a>
+                <a href="index.html#mapa" class="nav-link block text-white transition font-semibold py-2">
+                    <i class="fas fa-map-marked-alt mr-3"></i>Obszar
                 </a>
                 <a href="index.html#kontakt" class="nav-link block text-white transition font-semibold py-2">
                     <i class="fas fa-phone mr-3"></i>Kontakt
@@ -639,97 +709,97 @@
         </div>
     </section>
 
-    <!-- Service Area Map Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-transparent">
+    <!-- Dlaczego warto regularnie czyścić kostkę -->
+    <section class="py-20 px-4 bg-gradient-to-b from-transparent to-gray-900">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-black mb-4">
-                    <span class="gradient-text">Obszar</span> Działania
+                    Dlaczego warto <span class="gradient-text">regularnie czyścić</span> kostkę?
                 </h2>
-                <p class="text-gray-400 text-lg">Gdzie świadczymy nasze usługi</p>
+                <p class="text-gray-400 text-lg">Profesjonalne czyszczenie to inwestycja, która się zwraca</p>
             </div>
-            
-            <!-- Map Placeholder with Visual -->
-            <div class="glass rounded-3xl overflow-hidden mb-8 p-8" data-aos="zoom-in">
-                <div class="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-12 text-center">
-                    <i class="fas fa-map-marked-alt text-8xl text-gray-700 mb-6"></i>
-                    <h3 class="text-3xl font-bold mb-4">Działamy w trzech regionach</h3>
-                    <div class="flex flex-wrap justify-center gap-4 mb-6">
-                        <span class="badge text-lg">📍 Radom - promień ~50km</span>
-                        <span class="badge text-lg">📍 Grójec - promień ~25km</span>
-                        <span class="badge text-lg">📍 Białobrzegi - promień ~30km</span>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Bezpieczeństwo -->
+                <div class="glass rounded-3xl p-8 text-center hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                        <i class="fas fa-shield-alt text-4xl text-gray-900"></i>
                     </div>
-                    <p class="text-gray-400 max-w-2xl mx-auto mb-4">
-                        Obsługujemy szeroki obszar mazowsza środkowego. Podane odległości są orientacyjne - nie są sztywne! Jedziemy również dalej, wszystko jest do dogadania.
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">Bezpieczeństwo</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Mech i porosty sprawiają, że kostka staje się <strong class="text-white">bardzo śliska</strong>, szczególnie w deszczu. To realne zagrożenie dla domowników i gości.
                     </p>
-                    <p class="text-lime-400 font-semibold">
-                        <i class="fas fa-phone-alt mr-2"></i>Zadzwoń - ustalimy szczegóły dojazdu!
+                    <div class="mt-4 pt-4 border-t border-gray-700">
+                        <p class="text-sm text-red-400">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>Zapobiega upadkom
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Żywotność -->
+                <div class="glass rounded-3xl p-8 text-center hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                        <i class="fas fa-clock text-4xl text-gray-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">Żywotność kostki</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Mech i zabrudzenia <strong class="text-white">wnikają w strukturę</strong> kostki, niszcząc ją od środka. Regularne czyszczenie przedłuża jej trwałość nawet o lata.
                     </p>
+                    <div class="mt-4 pt-4 border-t border-gray-700">
+                        <p class="text-sm text-green-400">
+                            <i class="fas fa-plus-circle mr-2"></i>+5-10 lat żywotności
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Estetyka -->
+                <div class="glass rounded-3xl p-8 text-center hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                        <i class="fas fa-home text-4xl text-gray-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">Wartość nieruchomości</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Zadbana posesja to <strong class="text-white">wyższa wartość</strong> domu. Czysta kostka sprawia, że nieruchomość wygląda atrakcyjnie i profesjonalnie.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-gray-700">
+                        <p class="text-sm text-blue-400">
+                            <i class="fas fa-arrow-up mr-2"></i>Zwiększa wartość domu
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Plamy -->
+                <div class="glass rounded-3xl p-8 text-center hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                        <i class="fas fa-broom text-4xl text-gray-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">Zapobiega plamom</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Plamy z oleju, rdzy czy liści <strong class="text-white">wnikają głęboko</strong> w kostkę. Im dłużej czekasz, tym trudniej je usunąć. Działaj szybko!
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-gray-700">
+                        <p class="text-sm text-yellow-400">
+                            <i class="fas fa-tint mr-2"></i>Usuwa trwałe zabrudzenia
+                        </p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Radom Area -->
-                <div class="glass rounded-3xl p-8" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center mb-6">
-                        <div class="feature-icon mr-4" style="margin-bottom: 0;">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold">Radom</h3>
-                            <p class="text-gray-400">i okolice do 50km</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-3 text-gray-300">
-                        <li><i class="fas fa-check neon-accent mr-3"></i>Radom - centrum miasta</li>
-                        <li><i class="fas fa-check neon-accent mr-3"></i>Iłża, Skaryszew, Przysucha</li>
-                        <li><i class="fas fa-check neon-accent mr-3"></i>Zwoleń, Jedlińsk, Wolanów</li>
-                        <li><i class="fas fa-check neon-accent mr-3"></i>I wiele innych miejscowości</li>
-                    </ul>
-                </div>
-                
-                <!-- Grójec Area -->
-                <div class="glass rounded-3xl p-8" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center mb-6">
-                        <div class="feature-icon mr-4" style="margin-bottom: 0;">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold">Grójec</h3>
-                            <p class="text-gray-400">i okolice do 25km</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-3 text-gray-300">
-                        <li><i class="fas fa-check neon-accent mr-3"></i>Grójec - centrum miasta</li>
-                        <li><i class="fas fa-check neon-accent mr-3"></i>Mogielnica, Warka</li>
-                        <li><i class="fas fa-check neon-accent mr-3"></i>Nowe Miasto nad Pilicą</li>
-                        <li><i class="fas fa-check neon-accent mr-3"></i>Okoliczne wsie i gminy</li>
-                    </ul>
-                </div>
-                
-                <!-- Białobrzegi Area -->
-                <div class="glass rounded-3xl p-8" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center mb-6">
-                        <div class="feature-icon mr-4" style="margin-bottom: 0;">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold">Białobrzegi</h3>
-                            <p class="text-gray-400">i okolice do 30km</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-3 text-gray-300">
-                        <li><i class="fas fa-check neon-accent mr-3"></i>Białobrzegi - centrum</li>
-                        <li><i class="fas fa-check neon-accent mr-3"></i>Stromiec, Radzanów</li>
-                        <li><i class="fas fa-check neon-accent mr-3"></i>Wyśmierzyce, Stara Błotnica</li>
-                        <li><i class="fas fa-check neon-accent mr-3"></i>Gminy okoliczne</li>
-                    </ul>
-                </div>
+
+            <!-- CTA Box -->
+            <div class="glass rounded-3xl p-8 mt-12 text-center" data-aos="zoom-in" data-aos-delay="500">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4">
+                    <i class="fas fa-lightbulb text-yellow-400 mr-3"></i>
+                    Nie czekaj, aż będzie za późno!
+                </h3>
+                <p class="text-gray-400 mb-6 max-w-3xl mx-auto">
+                    Regularne czyszczenie kostki (raz na 1-2 lata) to najlepszy sposób na utrzymanie jej w idealnym stanie. 
+                    <strong class="text-white">Zainwestuj dziś, zaoszczędź jutro!</strong>
+                </p>
+                <a href="#kontakt" class="btn-primary inline-flex items-center justify-center px-8 py-4 text-lg">
+                    <i class="fas fa-calendar-check mr-2"></i>
+                    Umów bezpłatną wycenę
+                </a>
             </div>
-            
-            <p class="text-center text-gray-500 mt-8">
-                <i class="fas fa-info-circle mr-2"></i>Nie widzisz swojej miejscowości? <a href="tel:+48881578996" class="neon-accent hover:underline font-bold">Zadzwoń</a> - odległości są orientacyjne, jedziemy dalej i wszystko jest do dogadania!
-            </p>
         </div>
     </section>
 
@@ -823,6 +893,94 @@
         </div>
     </section>
 
+    <!-- Obszar Działania z Mapą -->
+    <section id="mapa" class="py-20 px-4 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">
+                    Działamy w <span class="gradient-text">Trzech Regionach</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Obsługujemy szeroki obszar mazowsza środkowego</p>
+            </div>
+
+            <!-- Regiony -->
+            <div class="grid md:grid-cols-3 gap-6 mb-12" data-aos="fade-up" data-aos-delay="200">
+                <!-- Radom -->
+                <div class="glass rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                        <i class="fas fa-map-marker-alt text-2xl text-gray-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 gradient-text">Radom</h3>
+                    <p class="text-gray-400 mb-4">i okolice do 50km</p>
+                    <ul class="text-sm text-gray-500 space-y-2 text-left">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Radom - centrum miasta</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Iłża, Skaryszew, Przysucha</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Zwoleń, Jedlińsk, Wolanów</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>I wiele innych miejscowości</li>
+                    </ul>
+                </div>
+
+                <!-- Grójec -->
+                <div class="glass rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                        <i class="fas fa-map-marker-alt text-2xl text-gray-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 gradient-text">Grójec</h3>
+                    <p class="text-gray-400 mb-4">i okolice do 25km</p>
+                    <ul class="text-sm text-gray-500 space-y-2 text-left">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Grójec - centrum miasta</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Mogielnica, Warka</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Nowe Miasto nad Pilicą</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Okoliczne wsie i gminy</li>
+                    </ul>
+                </div>
+
+                <!-- Białobrzegi -->
+                <div class="glass rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                        <i class="fas fa-map-marker-alt text-2xl text-gray-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 gradient-text">Białobrzegi</h3>
+                    <p class="text-gray-400 mb-4">i okolice do 30km</p>
+                    <ul class="text-sm text-gray-500 space-y-2 text-left">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Białobrzegi - centrum</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Stromiec, Radzanów</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Wyśmierzyce, Stara Błotnica</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Gminy okoliczne</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Info Box -->
+            <div class="glass rounded-2xl p-6 text-center mb-12" data-aos="fade-up" data-aos-delay="400">
+                <p class="text-gray-300 text-lg mb-3">
+                    <i class="fas fa-info-circle text-green-400 mr-2"></i>
+                    Podane odległości są orientacyjne – nie są sztywne!
+                </p>
+                <p class="text-gray-500">
+                    Jedziemy również dalej, wszystko jest do dogadania. Zadzwoń i ustalimy szczegóły dojazdu!
+                </p>
+                <a href="tel:+48881578996" class="btn-primary inline-flex items-center justify-center mt-6 px-8 py-4">
+                    <i class="fas fa-phone-alt mr-2"></i>
+                    Zadzwoń - ustalimy szczegóły dojazdu!
+                </a>
+            </div>
+
+            <!-- Google Maps Embed -->
+            <div class="glass rounded-3xl p-4 overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156418.0604324!2d20.9!3d51.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471878e2fe027873%3A0x42f49c60e899fc7!2sRadom!5e0!3m2!1spl!2spl!4v1234567890" 
+                    width="100%" 
+                    height="500" 
+                    style="border:0; border-radius: 20px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="kontakt" class="py-20 px-4">
         <div class="max-w-4xl mx-auto">
@@ -839,37 +997,113 @@
             </div>
             
             <div class="glass rounded-3xl p-8 md:p-12" data-aos="fade-up" data-aos-delay="200">
-                <div class="text-center">
-                    <h3 class="text-3xl font-bold mb-8">Zadzwoń lub napisz!</h3>
-                    
-                    <div class="flex flex-col gap-6 max-w-md mx-auto">
-                        <a href="tel:+48881578996" class="btn-primary justify-center text-xl py-4">
-                            <i class="fas fa-phone-alt"></i>
-                            +48 881 578 996
-                        </a>
-                        
-                        <a href="mailto:brukblyskradom@gmail.com" class="btn-secondary justify-center text-lg py-3">
-                            <i class="fas fa-envelope"></i>
-                            brukblyskradom@gmail.com
-                        </a>
-                        
-                        <div class="grid grid-cols-3 gap-4">
-                            <a href="https://www.instagram.com/brukblyskradom/" target="_blank" class="btn-secondary justify-center py-3" title="Instagram">
-                                <img src="assets/ig.png" alt="Instagram" class="w-6 h-6 mx-auto">
-                            </a>
-                            <a href="https://www.tiktok.com/@brukblyskradom" target="_blank" class="btn-secondary justify-center py-3" title="TikTok">
-                                <img src="assets/tt.png" alt="TikTok" class="w-6 h-6 mx-auto">
-                            </a>
-                            <a href="https://www.facebook.com/profile.php?id=100066646310223&locale=pl_PL" target="_blank" class="btn-secondary justify-center py-3" title="Facebook">
-                                <img src="assets/fb.png" alt="Facebook" class="w-6 h-6 mx-auto">
-                            </a>
-                        </div>
+                <h3 class="text-3xl font-bold mb-8 text-center">Zadzwoń lub napisz!</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Lewy panel - Formularz kontaktowy -->
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Wyślij zapytanie</h4>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-semibold mb-2 text-gray-300">Imię i nazwisko</label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    required
+                                    placeholder="Jan Kowalski"
+                                    class="w-full px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-gray-700 text-white placeholder-gray-500 focus:border-green-400 focus:outline-none transition">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-sm font-semibold mb-2 text-gray-300">Telefon</label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    required
+                                    placeholder="+48 123 456 789"
+                                    class="w-full px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-gray-700 text-white placeholder-gray-500 focus:border-green-400 focus:outline-none transition">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-semibold mb-2 text-gray-300">Email</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email"
+                                    placeholder="twoj@email.pl"
+                                    class="w-full px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-gray-700 text-white placeholder-gray-500 focus:border-green-400 focus:outline-none transition">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-semibold mb-2 text-gray-300">Wiadomość</label>
+                                <textarea 
+                                    id="message" 
+                                    name="message" 
+                                    rows="4" 
+                                    required
+                                    placeholder="Opisz swoją potrzebę... np. powierzchnia, lokalizacja, termin"
+                                    class="w-full px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-gray-700 text-white placeholder-gray-500 focus:border-green-400 focus:outline-none transition resize-none"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary w-full justify-center py-4 text-lg">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Wyślij zapytanie
+                            </button>
+                            
+                            <p class="text-xs text-gray-500 text-center">
+                                Odpowiadamy w ciągu 24h
+                            </p>
+                        </form>
                     </div>
                     
-                    <p class="text-gray-500 mt-8 text-sm">
-                        Odpowiadamy w ciągu 24h • Darmowa wycena
-                    </p>
+                    <!-- Prawy panel - Szybki kontakt -->
+                    <div class="flex flex-col justify-center">
+                        <h4 class="text-xl font-bold mb-6 text-center">Szybki kontakt</h4>
+                        <div class="space-y-4">
+                            <a href="tel:+48881578996" class="btn-primary justify-center text-xl py-4 w-full">
+                                <i class="fas fa-phone-alt"></i>
+                                +48 881 578 996
+                            </a>
+                            
+                            <a href="mailto:brukblyskradom@gmail.com" class="btn-secondary justify-center text-lg py-3 w-full">
+                                <i class="fas fa-envelope"></i>
+                                brukblyskradom@gmail.com
+                            </a>
+                            
+                            <div class="pt-4">
+                                <p class="text-sm text-gray-400 mb-3 text-center">Śledź nas w social media:</p>
+                                <div class="grid grid-cols-3 gap-4">
+                                    <a href="https://www.instagram.com/brukblyskradom/" target="_blank" class="btn-secondary justify-center py-3" title="Instagram">
+                                        <img src="assets/ig.png" alt="Instagram" class="w-6 h-6 mx-auto">
+                                    </a>
+                                    <a href="https://www.tiktok.com/@brukblyskradom" target="_blank" class="btn-secondary justify-center py-3" title="TikTok">
+                                        <img src="assets/tt.png" alt="TikTok" class="w-6 h-6 mx-auto">
+                                    </a>
+                                    <a href="https://www.facebook.com/profile.php?id=100066646310223&locale=pl_PL" target="_blank" class="btn-secondary justify-center py-3" title="Facebook">
+                                        <img src="assets/fb.png" alt="Facebook" class="w-6 h-6 mx-auto">
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="glass rounded-xl p-4 mt-6">
+                                <p class="text-sm text-gray-300 text-center">
+                                    <i class="fas fa-clock text-green-400 mr-2"></i>
+                                    <strong>Godziny dostępności:</strong>
+                                </p>
+                                <p class="text-sm text-gray-400 mt-2 text-center">
+                                    Pon-Pt: 7:00-21:00<br>
+                                    Sob-Niedz: 8:00-17:00
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
+                <p class="text-gray-500 mt-8 text-sm text-center">
+                    💡 <strong>Darmowa wycena</strong> • Odpowiadamy szybko • Profesjonalna obsługa
+                </p>
             </div>
         </div>
     </section>
@@ -965,6 +1199,37 @@
                 cookieBanner.classList.add('hidden');
             }, 300);
         });
+        
+        // Contact Form Handler
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Tworzymy link mailto z danymi
+                const subject = encodeURIComponent('Zapytanie o usługę - BrukBłysk');
+                const body = encodeURIComponent(
+                    `Imię i nazwisko: ${name}\n` +
+                    `Telefon: ${phone}\n` +
+                    `Email: ${email || 'Nie podano'}\n\n` +
+                    `Wiadomość:\n${message}`
+                );
+                
+                // Otwieramy mailto
+                window.location.href = `mailto:brukblyskradom@gmail.com?subject=${subject}&body=${body}`;
+                
+                // Pokazujemy potwierdzenie
+                alert('✅ Dziękujemy za wiadomość!\n\nOtworzy się Twój program pocztowy. Jeśli wolisz, możesz też zadzwonić: +48 881 578 996');
+                
+                // Czyścimy formularz
+                contactForm.reset();
+            });
+        }
     </script>
 </body>
 </html>

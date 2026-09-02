@@ -39,7 +39,7 @@
             background: #0a0a0a;
             color: #ffffff;
             overflow-x: hidden;
-            padding-top: 60px;
+            padding-top: 116px; /* Banner 56px + Navbar 60px */
         }
         
         /* Sticky Navbar */
@@ -179,8 +179,74 @@
 </head>
 <body>
 
+    <!-- Promocyjny Banner z animacją -->
+    <div id="promo-banner" class="fixed top-0 left-0 right-0 z-50" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); padding: 16px 0; overflow: hidden; box-shadow: 0 4px 20px rgba(132, 250, 176, 0.4);">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span class="marquee-item">
+                    <i class="fas fa-fire text-red-600 text-xl"></i>
+                    <strong>🎉 PROMOCJA DO KOŃCA MARCA!</strong>
+                    <span class="mx-3">•</span>
+                    <strong>-10% NA KAŻDE ZLECENIE</strong>
+                    <span class="mx-3">•</span>
+                    <i class="fas fa-phone-alt"></i>
+                    <strong>ZADZWOŃ: +48 881 578 996</strong>
+                    <span class="mx-3">•</span>
+                </span>
+                <span class="marquee-item">
+                    <i class="fas fa-fire text-red-600 text-xl"></i>
+                    <strong>🎉 PROMOCJA DO KOŃCA MARCA!</strong>
+                    <span class="mx-3">•</span>
+                    <strong>-10% NA KAŻDE ZLECENIE</strong>
+                    <span class="mx-3">•</span>
+                    <i class="fas fa-phone-alt"></i>
+                    <strong>ZADZWOŃ: +48 881 578 996</strong>
+                    <span class="mx-3">•</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .marquee {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+        
+        .marquee-item {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 900;
+            color: #0a0a0a;
+            padding: 0 40px;
+        }
+        
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .marquee-item {
+                font-size: 14px;
+                padding: 0 20px;
+            }
+        }
+    </style>
+
     <!-- Sticky Navbar with Logo -->
-    <nav class="sticky-navbar">
+    <nav class="sticky-navbar" style="top: 56px;">
         <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
             <a href="index.html">
                 <img src="assets/HERO.png" alt="BrukBłysk" class="navbar-logo">
@@ -191,6 +257,7 @@
                 <a href="index.html" class="nav-link text-white transition font-semibold">Strona główna</a>
                 <a href="galeria.html" class="nav-link text-white transition font-semibold">Galeria</a>
                 <a href="cennik.html" class="nav-link text-white transition font-semibold">Cennik</a>
+                <a href="index.html#mapa" class="nav-link text-white transition font-semibold">Obszar</a>
                 <a href="index.html#kontakt" class="nav-link text-white transition font-semibold">Kontakt</a>
             </div>
             
@@ -218,6 +285,9 @@
                 </a>
                 <a href="cennik.html" class="nav-link block text-white transition font-semibold py-2">
                     <i class="fas fa-tag mr-3"></i>Cennik
+                </a>
+                <a href="index.html#mapa" class="nav-link block text-white transition font-semibold py-2">
+                    <i class="fas fa-map-marked-alt mr-3"></i>Obszar
                 </a>
                 <a href="index.html#kontakt" class="nav-link block text-white transition font-semibold py-2">
                     <i class="fas fa-phone mr-3"></i>Kontakt
