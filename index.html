@@ -287,6 +287,9 @@
         .nav-link:hover {
             color: #84fab0;
         }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
             .floating-phone {
                 width: 55px;
                 height: 55px;
@@ -877,8 +880,26 @@
             <img src="assets/HERO.png" alt="BrukBłysk Logo" class="mx-auto mb-4" style="max-width: 200px; width: 100%; height: auto; opacity: 0.8;">
             <p>&copy; 2026 BrukBłysk. Wszystkie prawa zastrzeżone.</p>
             <p class="mt-2">Radom (+50km) | Grójec (+25km) | Białobrzegi (+30km)</p>
+            <p class="mt-4 text-xs opacity-70">
+                Kontaktując się z nami, wyrażasz zgodę na przetwarzanie podanych danych w celu udzielenia odpowiedzi i przygotowania oferty zgodnie z RODO. Twoje dane nie będą udostępniane osobom trzecim.
+            </p>
         </div>
     </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="hidden fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6 transition-opacity duration-300" style="background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-top: 1px solid rgba(132, 250, 176, 0.2);">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3 text-sm text-gray-300">
+                <i class="fas fa-cookie-bite text-2xl" style="color: #84fab0;"></i>
+                <p>
+                    Ta strona używa plików cookies w celu zapewnienia prawidłowego działania. Kontynuując przeglądanie, akceptujesz ich użycie.
+                </p>
+            </div>
+            <button id="accept-cookies" class="btn-primary px-6 py-3 whitespace-nowrap">
+                <i class="fas fa-check mr-2"></i>Akceptuję
+            </button>
+        </div>
+    </div>
 
     <!-- Floating Phone Button -->
     <a href="tel:+48881578996" class="floating-phone" title="Zadzwoń">
@@ -925,6 +946,24 @@
                     });
                 }
             });
+        });
+        
+        // Cookie Banner
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptCookies = document.getElementById('accept-cookies');
+        
+        // Check if user already accepted cookies
+        if (!localStorage.getItem('cookiesAccepted')) {
+            cookieBanner.classList.remove('hidden');
+        }
+        
+        // Accept cookies
+        acceptCookies.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.style.opacity = '0';
+            setTimeout(() => {
+                cookieBanner.classList.add('hidden');
+            }, 300);
         });
     </script>
 </body>
