@@ -39,7 +39,7 @@
             background: #0a0a0a;
             color: #ffffff;
             overflow-x: hidden;
-            padding-top: 116px; /* Banner 56px + Navbar 60px */
+            padding-top: 112px; /* Banner 52px + Navbar 60px */
         }
         
         /* Sticky Navbar */
@@ -180,26 +180,26 @@
 <body>
 
     <!-- Promocyjny Banner z animacją -->
-    <div id="promo-banner" class="fixed top-0 left-0 right-0 z-50" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); padding: 16px 0; overflow: hidden; box-shadow: 0 4px 20px rgba(132, 250, 176, 0.4);">
+    <div id="promo-banner" class="fixed top-0 left-0 right-0 z-50 flex items-center" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); overflow: hidden; box-shadow: 0 4px 20px rgba(132, 250, 176, 0.4); height: 52px;">
         <div class="marquee">
             <div class="marquee-content">
                 <span class="marquee-item">
-                    <i class="fas fa-fire text-red-600 text-xl"></i>
+                    <i class="fas fa-fire text-red-600 text-xl" style="vertical-align: middle;"></i>
                     <strong>🎉 PROMOCJA DO KOŃCA MARCA!</strong>
                     <span class="mx-3">•</span>
                     <strong>-10% NA KAŻDE ZLECENIE</strong>
                     <span class="mx-3">•</span>
-                    <i class="fas fa-phone-alt"></i>
+                    <i class="fas fa-phone-alt" style="vertical-align: middle;"></i>
                     <strong>ZADZWOŃ: +48 881 578 996</strong>
                     <span class="mx-3">•</span>
                 </span>
                 <span class="marquee-item">
-                    <i class="fas fa-fire text-red-600 text-xl"></i>
+                    <i class="fas fa-fire text-red-600 text-xl" style="vertical-align: middle;"></i>
                     <strong>🎉 PROMOCJA DO KOŃCA MARCA!</strong>
                     <span class="mx-3">•</span>
                     <strong>-10% NA KAŻDE ZLECENIE</strong>
                     <span class="mx-3">•</span>
-                    <i class="fas fa-phone-alt"></i>
+                    <i class="fas fa-phone-alt" style="vertical-align: middle;"></i>
                     <strong>ZADZWOŃ: +48 881 578 996</strong>
                     <span class="mx-3">•</span>
                 </span>
@@ -226,6 +226,7 @@
             font-weight: 900;
             color: #0a0a0a;
             padding: 0 40px;
+            line-height: 1.5;
         }
         
         @keyframes marquee {
@@ -237,16 +238,24 @@
             }
         }
         
+        /* Promo Banner - fixed height */
+        #promo-banner {
+            height: 52px;
+        }
+        
         @media (max-width: 768px) {
             .marquee-item {
                 font-size: 14px;
                 padding: 0 20px;
             }
+            #promo-banner {
+                height: 48px;
+            }
         }
     </style>
 
     <!-- Sticky Navbar with Logo -->
-    <nav class="sticky-navbar" style="top: 56px;">
+    <nav class="sticky-navbar" style="top: 52px;">
         <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
             <a href="index.html">
                 <img src="assets/HERO.png" alt="BrukBłysk" class="navbar-logo">
@@ -326,7 +335,7 @@
                     <!-- PRZED -->
                     <div class="glass rounded-3xl overflow-hidden gallery-item" data-aos="fade-up">
                         <div class="relative">
-                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 text-lime-400 px-4 py-2 rounded-xl font-bold z-10">PRZED</h3>
+                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 px-4 py-2 rounded-xl font-bold z-10" style="color: #84fab0;">PRZED</h3>
                             <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center" style="min-height: 250px;">
                                 <div class="text-center p-8">
                                     <i class="fas fa-camera text-4xl text-gray-600 mb-3"></i>
@@ -338,7 +347,7 @@
                     <!-- PO -->
                     <div class="glass rounded-3xl overflow-hidden gallery-item" data-aos="fade-up" data-aos-delay="100">
                         <div class="relative">
-                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 text-lime-400 px-4 py-2 rounded-xl font-bold z-10">PO</h3>
+                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 px-4 py-2 rounded-xl font-bold z-10" style="color: #84fab0;">PO</h3>
                             <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center" style="min-height: 250px;">
                                 <div class="text-center p-8">
                                     <i class="fas fa-camera text-4xl text-gray-600 mb-3"></i>
@@ -358,7 +367,7 @@
                     <!-- PRZED -->
                     <div class="glass rounded-3xl overflow-hidden gallery-item" data-aos="fade-up" data-aos-delay="200">
                         <div class="relative">
-                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 text-lime-400 px-4 py-2 rounded-xl font-bold z-10">PRZED</h3>
+                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 px-4 py-2 rounded-xl font-bold z-10" style="color: #84fab0;">PRZED</h3>
                             <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center" style="min-height: 250px;">
                                 <div class="text-center p-8">
                                     <i class="fas fa-camera text-4xl text-gray-600 mb-3"></i>
@@ -370,7 +379,7 @@
                     <!-- PO -->
                     <div class="glass rounded-3xl overflow-hidden gallery-item" data-aos="fade-up" data-aos-delay="300">
                         <div class="relative">
-                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 text-lime-400 px-4 py-2 rounded-xl font-bold z-10">PO</h3>
+                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 px-4 py-2 rounded-xl font-bold z-10" style="color: #84fab0;">PO</h3>
                             <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center" style="min-height: 250px;">
                                 <div class="text-center p-8">
                                     <i class="fas fa-camera text-4xl text-gray-600 mb-3"></i>
@@ -390,7 +399,7 @@
                     <!-- PRZED -->
                     <div class="glass rounded-3xl overflow-hidden gallery-item" data-aos="fade-up" data-aos-delay="400">
                         <div class="relative">
-                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 text-lime-400 px-4 py-2 rounded-xl font-bold z-10">PRZED</h3>
+                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 px-4 py-2 rounded-xl font-bold z-10" style="color: #84fab0;">PRZED</h3>
                             <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center" style="min-height: 250px;">
                                 <div class="text-center p-8">
                                     <i class="fas fa-camera text-4xl text-gray-600 mb-3"></i>
@@ -402,7 +411,7 @@
                     <!-- PO -->
                     <div class="glass rounded-3xl overflow-hidden gallery-item" data-aos="fade-up" data-aos-delay="500">
                         <div class="relative">
-                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 text-lime-400 px-4 py-2 rounded-xl font-bold z-10">PO</h3>
+                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 px-4 py-2 rounded-xl font-bold z-10" style="color: #84fab0;">PO</h3>
                             <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center" style="min-height: 250px;">
                                 <div class="text-center p-8">
                                     <i class="fas fa-camera text-4xl text-gray-600 mb-3"></i>
@@ -521,3 +530,4 @@
     </script>
 </body>
 </html>
+>

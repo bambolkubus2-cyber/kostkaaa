@@ -39,7 +39,7 @@
             background: #0a0a0a;
             color: #ffffff;
             overflow-x: hidden;
-            padding-top: 116px; /* Banner 56px + Navbar 60px */
+            padding-top: 112px; /* Banner 52px + Navbar 60px */
         }
         
         /* Sticky Navbar */
@@ -313,26 +313,26 @@
 <body>
 
     <!-- Promocyjny Banner z animacją -->
-    <div id="promo-banner" class="fixed top-0 left-0 right-0 z-50" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); padding: 16px 0; overflow: hidden; box-shadow: 0 4px 20px rgba(132, 250, 176, 0.4);">
+    <div id="promo-banner" class="fixed top-0 left-0 right-0 z-50 flex items-center" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); overflow: hidden; box-shadow: 0 4px 20px rgba(132, 250, 176, 0.4); height: 52px;">
         <div class="marquee">
             <div class="marquee-content">
                 <span class="marquee-item">
-                    <i class="fas fa-fire text-red-600 text-xl"></i>
+                    <i class="fas fa-fire text-red-600 text-xl" style="vertical-align: middle;"></i>
                     <strong>🎉 PROMOCJA DO KOŃCA MARCA!</strong>
                     <span class="mx-3">•</span>
                     <strong>-10% NA KAŻDE ZLECENIE</strong>
                     <span class="mx-3">•</span>
-                    <i class="fas fa-phone-alt"></i>
+                    <i class="fas fa-phone-alt" style="vertical-align: middle;"></i>
                     <strong>ZADZWOŃ: +48 881 578 996</strong>
                     <span class="mx-3">•</span>
                 </span>
                 <span class="marquee-item">
-                    <i class="fas fa-fire text-red-600 text-xl"></i>
+                    <i class="fas fa-fire text-red-600 text-xl" style="vertical-align: middle;"></i>
                     <strong>🎉 PROMOCJA DO KOŃCA MARCA!</strong>
                     <span class="mx-3">•</span>
                     <strong>-10% NA KAŻDE ZLECENIE</strong>
                     <span class="mx-3">•</span>
-                    <i class="fas fa-phone-alt"></i>
+                    <i class="fas fa-phone-alt" style="vertical-align: middle;"></i>
                     <strong>ZADZWOŃ: +48 881 578 996</strong>
                     <span class="mx-3">•</span>
                 </span>
@@ -359,6 +359,7 @@
             font-weight: 900;
             color: #0a0a0a;
             padding: 0 40px;
+            line-height: 1.5;
         }
         
         @keyframes marquee {
@@ -370,16 +371,24 @@
             }
         }
         
+        /* Promo Banner - fixed height */
+        #promo-banner {
+            height: 52px;
+        }
+        
         @media (max-width: 768px) {
             .marquee-item {
                 font-size: 14px;
                 padding: 0 20px;
             }
+            #promo-banner {
+                height: 48px;
+            }
         }
     </style>
 
     <!-- Sticky Navbar with Logo -->
-    <nav class="sticky-navbar" style="top: 56px;">
+    <nav class="sticky-navbar" style="top: 52px;">
         <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
             <a href="index.html">
                 <img src="assets/HERO.png" alt="BrukBłysk" class="navbar-logo">
@@ -530,20 +539,42 @@
                     <p class="text-gray-400 mb-6 text-center text-lg">
                         Usuwamy mech, porosty, plamy z oleju oraz piaskujemy fugi. Twój podjazd będzie wyglądał jak nowy i zyska ochronę na lata.
                     </p>
-                    <ul class="text-base text-gray-400 space-y-3 max-w-md mx-auto">
+                    <ul class="text-base text-gray-400 space-y-3 max-w-md mx-auto mb-6">
                         <li><i class="fas fa-check neon-accent mr-3"></i>Usuwanie mchu i porostów</li>
                         <li><i class="fas fa-check neon-accent mr-3"></i>Piaskowanie fug</li>
                         <li><i class="fas fa-check neon-accent mr-3"></i>Impregnacja powierzchni</li>
                         <li><i class="fas fa-check neon-accent mr-3"></i>Długotrwała ochrona przed zabrudzeniami</li>
                     </ul>
+                    <div class="text-center">
+                        <a href="cennik.html" class="btn-primary text-xl inline-flex">
+                            <i class="fas fa-tag mr-2"></i>
+                            Zobacz Cennik
+                        </a>
+                    </div>
                 </div>
                 
-                <!-- Pricing CTA -->
-                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <a href="cennik.html" class="btn-primary text-xl inline-flex">
-                        <i class="fas fa-tag"></i>
-                        Zobacz Cennik
-                    </a>
+                <!-- Service 2 - NOWA USŁUGA -->
+                <div class="glass rounded-3xl p-8 service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4 text-center">Czyszczenie Sprzętu<br>& Maszyn</h3>
+                    <p class="text-gray-400 mb-6 text-center text-lg">
+                        Profesjonalne mycie maszyn rolniczych, budowlanych i sprzętu outdoorowego. Przywracamy fabryczny wygląd!
+                    </p>
+                    <ul class="text-base text-gray-300 space-y-3 max-w-md mx-auto mb-6">
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Ciągniki, kombajny, siewniki – od 250 zł/szt</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Koparki, ładowarki, zagęszczarki – od 300 zł/szt</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Kosiarki, przyczepy – od 120 zł/szt</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Usuwanie betonu, smarów, oleju</li>
+                        <li><i class="fas fa-check neon-accent mr-3"></i>Przygotowanie do sprzedaży lub sezonu</li>
+                    </ul>
+                    <div class="text-center">
+                        <a href="cennik.html#maszyny" class="btn-primary text-xl inline-flex">
+                            <i class="fas fa-tag mr-2"></i>
+                            Zobacz Cennik
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1233,3 +1264,4 @@
     </script>
 </body>
 </html>
+>
