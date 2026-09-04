@@ -192,9 +192,9 @@
         .price-badge {
             background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
             color: #0a0a0a;
-            padding: 1.5rem 2rem;
+            padding: 1rem 1.5rem;
             border-radius: 20px;
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 900;
             display: inline-block;
             box-shadow: 0 8px 30px rgba(132, 250, 176, 0.4);
@@ -210,8 +210,8 @@
             }
             
             .price-badge {
-                font-size: 2rem;
-                padding: 1rem 1.5rem;
+                font-size: 1.5rem;
+                padding: 0.75rem 1.25rem;
             }
         }
     </style>
@@ -219,7 +219,7 @@
 <body>
 
     <!-- Promocyjny Banner z animacją -->
-    <div id="promo-banner" class="fixed top-0 left-0 right-0 z-50 flex items-center" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); overflow: hidden; box-shadow: 0 4px 20px rgba(132, 250, 176, 0.4); height: 52px;">
+    <div id="promo-banner" class="fixed top-0 left-0 right-0 z-50 flex items-center" style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); overflow: hidden; box-shadow: 0 4px 20px rgba(30, 58, 138, 0.4); height: 52px;">
         <div class="marquee">
             <div class="marquee-content">
                 <span class="marquee-item">
@@ -271,7 +271,7 @@
             display: inline-block;
             font-size: 18px;
             font-weight: 900;
-            color: #0a0a0a;
+            color: #ffffff;
             padding: 0 40px;
             line-height: 1.5;
         }
@@ -448,35 +448,90 @@
                 </div>
             </div>
             
-            <!-- CTA Section -->
-            <div class="text-center mt-16" data-aos="fade-up">
-                <div class="glass rounded-3xl p-8 md:p-12">
-                    <h3 class="text-3xl font-bold mb-6">Potrzebujesz dokładnej wyceny?</h3>
-                    <p class="text-gray-400 mb-8 text-lg">
-                        Zadzwoń lub wyślij zdjęcie swojego podjazdu – odpowiemy w ciągu 24h!
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="tel:+48881578996" class="navbar-phone text-xl justify-center">
-                            <i class="fas fa-phone-alt"></i>
-                            +48 881 578 996
-                        </a>
-                        <a href="mailto:brukblyskradom@gmail.com" class="btn-secondary text-lg justify-center">
-                            <i class="fas fa-envelope"></i>
-                            brukblyskradom@gmail.com
-                        </a>
+            <!-- SEKCJA ELEWACJE - NOWA -->
+            <div class="mt-32 mb-16" id="elewacje">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <div class="badge mb-6">
+                        <i class="fas fa-building mr-2"></i>Mycie Elewacji & SoftWash
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-black mb-4">
+                        Cennik <span class="gradient-text">Mycia Elewacji</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg">Bezpieczne czyszczenie chemiczne – bez niszczenia tynku</p>
+                </div>
+                
+                <!-- Main Pricing Card Elewacje -->
+                <div class="glass rounded-3xl p-8 md:p-12 mb-12" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
                     </div>
                     
-                    <!-- Social Media Icons -->
-                    <div class="flex justify-center gap-4 mt-8">
-                        <a href="https://www.instagram.com/brukblyskradom/" target="_blank" class="btn-secondary py-4 px-6" title="Instagram">
-                            <img src="assets/ig.png" alt="Instagram" class="w-6 h-6">
-                        </a>
-                        <a href="https://www.tiktok.com/@brukblyskradom" target="_blank" class="btn-secondary py-4 px-6" title="TikTok">
-                            <img src="assets/tt.png" alt="TikTok" class="w-6 h-6">
-                        </a>
-                        <a href="https://www.facebook.com/profile.php?id=100066646310223&locale=pl_PL" target="_blank" class="btn-secondary py-4 px-6" title="Facebook">
-                            <img src="assets/fb.png" alt="Facebook" class="w-6 h-6">
-                        </a>
+                    <h2 class="text-3xl md:text-4xl font-black text-center mb-6">
+                        Mycie Elewacji<br>Metodą SoftWash
+                    </h2>
+                    
+                    <div class="text-center mb-8">
+                        <div class="price-badge">10-20 zł / m²</div>
+                    </div>
+                    
+                    <p class="text-center text-gray-400 mb-8 text-lg">
+                        Cena ustalana indywidualnie w zależności od stopnia zabrudzenia i metody
+                    </p>
+                    
+                    <!-- What's Included -->
+                    <div class="bg-black bg-opacity-30 rounded-2xl p-6 md:p-8">
+                        <h3 class="text-2xl font-bold mb-6 flex items-center justify-center">
+                            <i class="fas fa-check-circle neon-accent mr-3"></i>
+                            W cenie pakietu:
+                        </h3>
+                        
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start">
+                                <i class="fas fa-flask neon-accent mr-4 mt-1 text-xl"></i>
+                                <span><strong>Dobór chemii technicznej Tenzi</strong> – APC Out / Mchy i Porosty (bezpieczna dla tynków)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-spray-can neon-accent mr-4 mt-1 text-xl"></i>
+                                <span><strong>Aplikacja niskociśnieniowa (SoftWash)</strong> – pianowanie bez ryzyka uszkodzenia powłoki</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-shower neon-accent mr-4 mt-1 text-xl"></i>
+                                <span><strong>Spłukiwanie profesjonalnym sprzętem spalinowym</strong> – dokładne usunięcie osadów i chemii</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt neon-accent mr-4 mt-1 text-xl"></i>
+                                <span><strong>Zabezpieczenie otoczenia</strong> – ochrona roślin i elementów wrażliwych</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Additional Info Elewacje -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Transport Info -->
+                    <div class="glass rounded-3xl p-8" data-aos="fade-right">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-lime-400 to-cyan-400 rounded-xl flex items-center justify-center text-black text-2xl mr-4">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Dojazd</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg">
+                            Dojazd <strong class="neon-accent">wliczony w cenę za m²</strong> w promieniu Radomia, Grójca i Białobrzegów.
+                        </p>
+                    </div>
+                    
+                    <!-- Individual Pricing -->
+                    <div class="glass rounded-3xl p-8" data-aos="fade-left">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-lime-400 to-cyan-400 rounded-xl flex items-center justify-center text-black text-2xl mr-4">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Wycena</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg">
+                            <strong class="neon-accent">Darmowa wycena na podstawie zdjęć</strong> elewacji przez telefon lub email w 24h.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -620,6 +675,43 @@
                         <i class="fas fa-phone-alt"></i>
                         +48 881 578 996
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GŁÓWNA SEKCJA CTA - Na samym dole -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center" data-aos="fade-up">
+                <div class="glass rounded-3xl p-8 md:p-12">
+                    <h3 class="text-3xl font-bold mb-6">Potrzebujesz dokładnej wyceny?</h3>
+                    <p class="text-gray-400 mb-8 text-lg">
+                        Zadzwoń lub wyślij zdjęcie swojej elewacji/podjazdu/maszyny – odpowiemy w ciągu 24h!
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="tel:+48881578996" class="navbar-phone text-xl justify-center">
+                            <i class="fas fa-phone-alt"></i>
+                            +48 881 578 996
+                        </a>
+                        <a href="mailto:brukblyskradom@gmail.com" class="btn-secondary text-lg justify-center">
+                            <i class="fas fa-envelope"></i>
+                            brukblyskradom@gmail.com
+                        </a>
+                    </div>
+                    
+                    <!-- Social Media Icons -->
+                    <div class="flex justify-center gap-4 mt-8">
+                        <a href="https://www.instagram.com/brukblyskradom/" target="_blank" class="btn-secondary py-4 px-6" title="Instagram">
+                            <img src="assets/ig.png" alt="Instagram" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.tiktok.com/@brukblyskradom" target="_blank" class="btn-secondary py-4 px-6" title="TikTok">
+                            <img src="assets/tt.png" alt="TikTok" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100066646310223&locale=pl_PL" target="_blank" class="btn-secondary py-4 px-6" title="Facebook">
+                            <img src="assets/fb.png" alt="Facebook" class="w-6 h-6">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
