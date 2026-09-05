@@ -18,6 +18,19 @@
     <meta property="og:locale" content="pl_PL">
     <meta property="og:site_name" content="BrukBłysk">
     
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BrukBłysk - Czyszczenie Kostki, Elewacji & Maszyn">
+    <meta name="twitter:description" content="Profesjonalne czyszczenie: kostka brukowa, elewacje, maszyny rolnicze i budowlane. 📞 +48 881 578 996">
+    <meta name="twitter:image" content="https://brukblysk.pl/assets/HERO.png">
+    
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="BrukBłysk">
+    <meta name="keywords" content="mycie kostki brukowej, czyszczenie elewacji, mycie maszyn rolniczych, czyszczenie kostki, Radom, Grójec, Białobrzegi, ciśnieniowe, profesjonalne czyszczenie">
+    <link rel="canonical" href="https://brukblysk.pl/">
+    <meta name="theme-color" content="#84fab0">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/HERO.png">
     
@@ -252,6 +265,119 @@
             justify-content: center;
             color: #0a0a0a;
             font-size: 1.5rem;
+            box-shadow: 0 8px 32px rgba(132, 250, 176, 0.5);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: rgba(132, 250, 176, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid #84fab0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #84fab0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(100px);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .scroll-to-top:hover {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #0a0a0a;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 32px rgba(132, 250, 176, 0.5);
+        }
+        
+        /* Success Modal */
+        .success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .success-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .success-modal-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid rgba(132, 250, 176, 0.3);
+            box-shadow: 0 20px 80px rgba(132, 250, 176, 0.3);
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .success-modal.active .success-modal-content {
+            transform: scale(1);
+        }
+        
+        .success-icon-large {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: successPop 0.6s ease-out;
+        }
+        
+        @keyframes successPop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+            align-items: center;
+            justify-content: center;
+            color: #0a0a0a;
+            font-size: 1.5rem;
             box-shadow: 0 4px 20px rgba(132, 250, 176, 0.5);
             z-index: 1000;
             transition: all 0.3s ease;
@@ -321,6 +447,103 @@
             }
         }
     </style>
+    
+    <!-- Structured Data - Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "BrukBłysk",
+      "image": "https://brukblysk.pl/assets/HERO.png",
+      "description": "Profesjonalne czyszczenie zewnętrzne: mycie kostki brukowej, elewacji i maszyn. Radom, Grójec, Białobrzegi.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Radom",
+        "addressRegion": "Mazowieckie",
+        "addressCountry": "PL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.4027,
+        "longitude": 21.1471
+      },
+      "url": "https://brukblysk.pl",
+      "telephone": "+48881578996",
+      "priceRange": "8-20 PLN/m²",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "07:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Radom"
+        },
+        {
+          "@type": "City",
+          "name": "Grójec"
+        },
+        {
+          "@type": "City",
+          "name": "Białobrzegi"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/brukblyskradom/",
+        "https://www.tiktok.com/@brukblyskradom",
+        "https://www.facebook.com/profile.php?id=100066646310223"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Usługi czyszczenia",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mycie kostki brukowej",
+              "description": "Profesjonalne mycie kostki brukowej sprzętem spalinowym z talercem rotacyjnym"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Czyszczenie elewacji",
+              "description": "Mycie elewacji metodą niskociśnieniową z chemią biobójczą"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mycie maszyn",
+              "description": "Profesjonalne mycie maszyn rolniczych, budowlanych i sprzętu outdoorowego"
+            }
+          }
+        ]
+      }
+    }
+    </script>
 </head>
 <body>
 
@@ -471,7 +694,7 @@
         <div class="hero-content max-w-6xl mx-auto text-center" data-aos="fade-up">
             <!-- Logo -->
             <div class="mb-8" data-aos="zoom-in">
-                <img src="assets/HERO.png" alt="BrukBłysk Logo" class="mx-auto" style="max-width: 300px; width: 100%; height: auto;">
+                <img src="assets/HERO.png" alt="BrukBłysk Logo" loading="lazy" class="mx-auto" style="max-width: 300px; width: 100%; height: auto;">
             </div>
             
             <div class="badge mb-6" data-aos="fade-down" data-aos-delay="100">
@@ -534,7 +757,7 @@
         <div class="max-w-6xl mx-auto">
             <!-- Small Logo -->
             <div class="text-center mb-8" data-aos="fade-down">
-                <img src="assets/HERO.png" alt="BrukBłysk" class="mx-auto" style="max-width: 120px; opacity: 0.6;">
+                <img src="assets/HERO.png" alt="BrukBłysk" loading="lazy" class="mx-auto" style="max-width: 120px; opacity: 0.6;">
             </div>
             
             <div class="text-center mb-16" data-aos="fade-up">
@@ -1367,7 +1590,7 @@
         <div class="max-w-4xl mx-auto">
             <!-- Logo above contact -->
             <div class="text-center mb-8" data-aos="zoom-in">
-                <img src="assets/HERO.png" alt="BrukBłysk" class="mx-auto" style="max-width: 180px;">
+                <img src="assets/HERO.png" alt="BrukBłysk" loading="lazy" class="mx-auto" style="max-width: 180px;">
             </div>
             
             <div class="text-center mb-16" data-aos="fade-up">
@@ -1384,7 +1607,7 @@
                     <!-- Lewy panel - Formularz kontaktowy -->
                     <div class="mb-8 md:mb-0">
                         <h4 class="text-lg md:text-xl font-bold mb-4">Wyślij zapytanie</h4>
-                        <form id="contact-form" class="space-y-3 md:space-y-4">
+                        <form id="contact-form" action="https://formspree.io/f/xppzjzjd" method="POST" class="space-y-3 md:space-y-4">
                             <div>
                                 <label for="name" class="block text-sm font-semibold mb-2 text-gray-300">Imię i nazwisko</label>
                                 <input 
@@ -1412,7 +1635,7 @@
                                 <input 
                                     type="email" 
                                     id="email" 
-                                    name="email"
+                                    name="_replyto"
                                     placeholder="twoj@email.pl"
                                     class="w-full px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-gray-700 text-white placeholder-gray-500 focus:border-green-400 focus:outline-none transition">
                             </div>
@@ -1427,6 +1650,12 @@
                                     placeholder="Opisz swoją potrzebę... np. powierzchnia, lokalizacja, termin"
                                     class="w-full px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-gray-700 text-white placeholder-gray-500 focus:border-green-400 focus:outline-none transition resize-none"></textarea>
                             </div>
+                            
+                            <!-- Honeypot for spam protection -->
+                            <input type="text" name="_gotcha" style="display:none">
+                            
+                            <!-- Success message -->
+                            <input type="hidden" name="_subject" value="Nowe zapytanie z formularza BrukBłysk">
                             
                             <button type="submit" class="btn-primary w-full justify-center py-3 md:py-4 text-base md:text-lg">
                                 <i class="fas fa-paper-plane mr-2"></i>
@@ -1457,13 +1686,13 @@
                                 <p class="text-sm text-gray-400 mb-3 text-center">Śledź nas w social media:</p>
                                 <div class="grid grid-cols-3 gap-4">
                                     <a href="https://www.instagram.com/brukblyskradom/" target="_blank" class="btn-secondary justify-center py-3" title="Instagram">
-                                        <img src="assets/ig.png" alt="Instagram" class="w-6 h-6 mx-auto">
+                                        <img src="assets/ig.png" alt="Instagram" loading="lazy" class="w-6 h-6 mx-auto">
                                     </a>
                                     <a href="https://www.tiktok.com/@brukblyskradom" target="_blank" class="btn-secondary justify-center py-3" title="TikTok">
-                                        <img src="assets/tt.png" alt="TikTok" class="w-6 h-6 mx-auto">
+                                        <img src="assets/tt.png" alt="TikTok" loading="lazy" class="w-6 h-6 mx-auto">
                                     </a>
                                     <a href="https://www.facebook.com/profile.php?id=100066646310223&locale=pl_PL" target="_blank" class="btn-secondary justify-center py-3" title="Facebook">
-                                        <img src="assets/fb.png" alt="Facebook" class="w-6 h-6 mx-auto">
+                                        <img src="assets/fb.png" alt="Facebook" loading="lazy" class="w-6 h-6 mx-auto">
                                     </a>
                                 </div>
                             </div>
@@ -1490,14 +1719,42 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 border-t border-gray-800">
-        <div class="max-w-6xl mx-auto text-center text-gray-500 text-sm">
-            <img src="assets/HERO.png" alt="BrukBłysk Logo" class="mx-auto mb-4" style="max-width: 200px; width: 100%; height: auto; opacity: 0.8;">
-            <p>&copy; 2026 BrukBłysk. Wszystkie prawa zastrzeżone.</p>
-            <p class="mt-2">Radom (+50km) | Grójec (+25km) | Białobrzegi (+30km)</p>
-            <p class="mt-4 text-xs opacity-70">
-                Kontaktując się z nami, wyrażasz zgodę na przetwarzanie podanych danych w celu udzielenia odpowiedzi i przygotowania oferty zgodnie z RODO. Twoje dane nie będą udostępniane osobom trzecim.
-            </p>
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- Kontakt -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 neon-accent">Kontakt</h3>
+                    <p class="mb-2"><i class="fas fa-phone mr-2"></i>+48 881 578 996</p>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Radom, Grójec, Białobrzegi</p>
+                </div>
+                
+                <!-- Usługi -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 neon-accent">Usługi</h3>
+                    <p class="mb-2">Mycie Kostki Brukowej</p>
+                    <p class="mb-2">Czyszczenie Elewacji</p>
+                    <p class="mb-2">Mycie Maszyn</p>
+                </div>
+                
+                <!-- Linki -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 neon-accent">Informacje</h3>
+                    <p class="mb-2"><a href="polityka-prywatnosci.html" class="hover:text-lime-400 transition-colors">Polityka Prywatności</a></p>
+                    <p class="mb-2"><a href="index.html#contact" class="hover:text-lime-400 transition-colors">Formularz Kontaktowy</a></p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 BrukBłysk. Wszelkie prawa zastrzeżone.</p>
+                <p class="text-sm mt-2">Profesjonalne czyszczenie zewnętrzne - Kostka, Elewacje, Maszyny</p>
+                <p class="text-sm mt-3">
+                    <a href="polityka-prywatnosci.html" class="text-lime-400 hover:text-lime-300 transition-colors">
+                        Polityka Prywatności
+                    </a>
+                </p>
+            </div>
         </div>
     </footer>
 
@@ -1520,6 +1777,11 @@
     <a href="tel:+48881578996" class="floating-phone" title="Zadzwoń">
         <i class="fas fa-phone-alt"></i>
     </a>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top" title="Wróć na górę">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1531,6 +1793,24 @@
             easing: 'ease-in-out',
             once: true,
             offset: 100
+        });
+        
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
         
         // Mobile Menu Toggle
@@ -1582,35 +1862,102 @@
         });
         
         // Contact Form Handler
+        // Contact Form Handler - Formspree z AJAX
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault(); // Blokujemy standardowe wysłanie
                 
-                const name = document.getElementById('name').value;
-                const phone = document.getElementById('phone').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Wysyłanie...';
+                submitBtn.disabled = true;
                 
-                // Tworzymy link mailto z danymi
-                const subject = encodeURIComponent('Zapytanie o usługę - BrukBłysk');
-                const body = encodeURIComponent(
-                    `Imię i nazwisko: ${name}\n` +
-                    `Telefon: ${phone}\n` +
-                    `Email: ${email || 'Nie podano'}\n\n` +
-                    `Wiadomość:\n${message}`
-                );
+                // Pobierz dane z formularza
+                const formData = new FormData(this);
                 
-                // Otwieramy mailto
-                window.location.href = `mailto:brukblyskradom@gmail.com?subject=${subject}&body=${body}`;
-                
-                // Pokazujemy potwierdzenie
-                alert('✅ Dziękujemy za wiadomość!\n\nOtworzy się Twój program pocztowy. Jeśli wolisz, możesz też zadzwonić: +48 881 578 996');
-                
-                // Czyścimy formularz
-                contactForm.reset();
+                try {
+                    // Wyślij przez AJAX do Formspree
+                    const response = await fetch('https://formspree.io/f/xppzjzjd', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Sukces!
+                        submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Wysłano!';
+                        submitBtn.style.background = '#10b981';
+                        
+                        // Pokaż modal zamiast alert
+                        showSuccessModal();
+                        
+                        // Wyczyść formularz
+                        contactForm.reset();
+                        
+                        // Przywróć przycisk po 3 sekundach
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.style.background = '';
+                        }, 3000);
+                    } else {
+                        throw new Error('Błąd wysyłania');
+                    }
+                } catch (error) {
+                    // Błąd
+                    submitBtn.innerHTML = '<i class="fas fa-times mr-2"></i>Błąd!';
+                    submitBtn.style.background = '#ef4444';
+                    alert('❌ Wystąpił błąd podczas wysyłania.\n\nProsimy zadzwoń: +48 881 578 996');
+                    
+                    // Przywróć przycisk
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '';
+                    }, 3000);
+                }
             });
         }
+        
+        // Success Modal Functions
+        let countdownInterval;
+        
+        function showSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            modal.classList.add('active');
+            
+            // Start countdown
+            let seconds = 10;
+            const countdownEl = document.getElementById('countdown');
+            
+            countdownInterval = setInterval(() => {
+                seconds--;
+                if (countdownEl) countdownEl.textContent = seconds;
+                
+                if (seconds <= 0) {
+                    closeSuccessModal();
+                }
+            }, 1000);
+        }
+        
+        function closeSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            modal.classList.remove('active');
+            
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+        }
+        
+        // Close modal on click outside
+        document.getElementById('success-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSuccessModal();
+            }
+        });
         
         // ====== ANIMATED COUNTERS ======
         function animateCounter(elementId, targetValue, duration, suffix = '', decimals = 0) {
@@ -1707,6 +2054,47 @@
             }
         }
     </style>
+    
+    <!-- Success Modal -->
+    <div id="success-modal" class="success-modal">
+        <div class="success-modal-content">
+            <div class="success-icon-large">
+                <i class="fas fa-check text-6xl" style="color: #0a0a0a;"></i>
+            </div>
+            
+            <h2 class="text-4xl md:text-5xl font-black mb-4" style="color: #84fab0; text-shadow: 0 0 30px rgba(132, 250, 176, 0.5);">
+                Dziękujemy!
+            </h2>
+            
+            <p class="text-xl md:text-2xl text-white mb-6 font-semibold">
+                Twoja wiadomość została wysłana pomyślnie
+            </p>
+            
+            <div class="bg-black bg-opacity-40 rounded-2xl p-6 mb-8 border border-lime-400 border-opacity-20">
+                <p class="text-gray-300 mb-4 text-lg">
+                    <i class="fas fa-clock text-lime-400 mr-2"></i>
+                    <strong class="text-white">Odpowiemy w ciągu 24 godzin</strong>
+                </p>
+                <p class="text-gray-400 mb-2">
+                    W pilnych sprawach dzwoń:
+                </p>
+                <a href="tel:+48881578996" class="text-3xl md:text-4xl font-black block mt-3" style="color: #84fab0; text-shadow: 0 0 20px rgba(132, 250, 176, 0.5);">
+                    <i class="fas fa-phone-alt mr-2"></i>
+                    +48 881 578 996
+                </a>
+            </div>
+            
+            <button onclick="closeSuccessModal()" class="btn-primary text-lg px-8 py-4">
+                <i class="fas fa-times mr-2"></i>
+                Zamknij
+            </button>
+            
+            <p class="text-gray-500 text-sm mt-6">
+                To okno zamknie się automatycznie za <span id="countdown">10</span> sekund
+            </p>
+        </div>
+    </div>
+    
 </body>
 </html>
 >

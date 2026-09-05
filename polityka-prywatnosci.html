@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Polityka Prywatności BrukBłysk - Informacje o przetwarzaniu danych osobowych zgodnie z RODO">
+    <title>Polityka Prywatności | BrukBłysk</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/HERO.png">
+    
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            padding-top: 100px;
+        }
+        
+        /* Sticky Navbar */
+        .sticky-navbar {
+            position: fixed;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(132, 250, 176, 0.1);
+            z-index: 40;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-logo {
+            height: 48px;
+            width: auto;
+        }
+        
+        .navbar-phone {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #0a0a0a;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(132, 250, 176, 0.3);
+        }
+        
+        .navbar-phone:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(132, 250, 176, 0.5);
+        }
+        
+        /* Promo Banner */
+        .promo-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            z-index: 50;
+            background: linear-gradient(90deg, #1e3a8a 0%, #1e40af 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .promo-text {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        
+        /* Glass Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(132, 250, 176, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        /* Neon Accent */
+        .neon-accent {
+            color: #84fab0;
+            text-shadow: 0 0 20px rgba(132, 250, 176, 0.5);
+        }
+        
+        /* Nav Link Hover */
+        .nav-link:hover {
+            color: #84fab0;
+        }
+        
+        /* Content Styling */
+        .content-section h2 {
+            color: #84fab0;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section h3 {
+            color: #8fd3f4;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .content-section p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+        
+        .content-section strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        /* Back to Home Button */
+        .btn-back {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #0a0a0a;
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(132, 250, 176, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <div class="promo-text">
+            🎉 RABAT -10% NA KAŻDE ZLECENIE! PROMOCJA LIMITOWANA! 🎉
+        </div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <nav class="sticky-navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/HERO.png" alt="BrukBłysk Logo" class="navbar-logo">
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="nav-link text-white hover:text-lime-400 transition-colors font-semibold">Strona Główna</a>
+                    <a href="cennik.html" class="nav-link text-white hover:text-lime-400 transition-colors font-semibold">Cennik</a>
+                    <a href="galeria.html" class="nav-link text-white hover:text-lime-400 transition-colors font-semibold">Galeria</a>
+                    <a href="tel:+48881578996" class="navbar-phone">
+                        <i class="fas fa-phone-alt"></i>
+                        +48 881 578 996
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+        <div class="max-w-4xl mx-auto glass p-8 md:p-12">
+            <h1 class="text-4xl md:text-5xl font-black mb-8 text-center">
+                <span class="neon-accent">Polityka Prywatności</span>
+            </h1>
+            
+            <div class="content-section">
+                <p class="text-gray-400 text-center mb-8">
+                    <i class="fas fa-calendar-alt mr-2"></i>Ostatnia aktualizacja: 31 sierpnia 2026
+                </p>
+
+                <h2>1. Administrator danych osobowych</h2>
+                <p>
+                    Administratorem Twoich danych osobowych jest <strong>BrukBłysk</strong>, prowadzący działalność gospodarczą pod adresem:<br>
+                    <strong>Telefon kontaktowy:</strong> +48 881 578 996
+                </p>
+                <p>
+                    W sprawach dotyczących przetwarzania danych osobowych oraz realizacji przysługujących Ci praw, możesz skontaktować się z nami telefonicznie lub za pośrednictwem formularza kontaktowego na stronie.
+                </p>
+
+                <h2>2. Zakres zbieranych danych</h2>
+                <p>Zbieramy tylko te dane osobowe, które są niezbędne do świadczenia naszych usług. W zależności od sposobu kontaktu mogą to być:</p>
+                <ul>
+                    <li><strong>Imię i nazwisko</strong> – w celu personalizacji kontaktu</li>
+                    <li><strong>Numer telefonu</strong> – w celu kontaktu zwrotnego i ustalenia szczegółów zlecenia</li>
+                    <li><strong>Adres e-mail</strong> (opcjonalnie) – w celu przesłania wyceny lub potwierdzenia</li>
+                    <li><strong>Adres realizacji usługi</strong> – w celu wykonania zlecenia</li>
+                    <li><strong>Zdjęcia przesłane przez klienta</strong> – w celu przygotowania wyceny</li>
+                </ul>
+
+                <h2>3. Cele i podstawy prawne przetwarzania danych</h2>
+                <p>Twoje dane osobowe przetwarzamy wyłącznie w następujących celach:</p>
+                
+                <h3>a) Kontakt i przygotowanie wyceny</h3>
+                <ul>
+                    <li><strong>Podstawa prawna:</strong> Art. 6 ust. 1 lit. b) RODO – przetwarzanie niezbędne do podjęcia działań na Twoje żądanie przed zawarciem umowy</li>
+                    <li><strong>Cel:</strong> Udzielenie odpowiedzi na zapytanie, przygotowanie indywidualnej wyceny</li>
+                </ul>
+
+                <h3>b) Realizacja umowy</h3>
+                <ul>
+                    <li><strong>Podstawa prawna:</strong> Art. 6 ust. 1 lit. b) RODO – przetwarzanie niezbędne do wykonania umowy</li>
+                    <li><strong>Cel:</strong> Świadczenie usług czyszczenia (kostki brukowej, elewacji, maszyn)</li>
+                </ul>
+
+                <h3>c) Archiwizacja i rozliczenia</h3>
+                <ul>
+                    <li><strong>Podstawa prawna:</strong> Art. 6 ust. 1 lit. c) RODO – wypełnienie obowiązku prawnego (przepisy podatkowe)</li>
+                    <li><strong>Cel:</strong> Przechowywanie dokumentacji księgowej zgodnie z obowiązującymi przepisami</li>
+                </ul>
+
+                <h3>d) Marketing (za zgodą)</h3>
+                <ul>
+                    <li><strong>Podstawa prawna:</strong> Art. 6 ust. 1 lit. a) RODO – zgoda</li>
+                    <li><strong>Cel:</strong> Przesyłanie informacji o promocjach i rabatach (tylko jeśli wyraziłeś zgodę)</li>
+                </ul>
+
+                <h2>4. Okres przechowywania danych</h2>
+                <p>Twoje dane osobowe przechowujemy przez okres:</p>
+                <ul>
+                    <li><strong>Zapytania o wycenę:</strong> do 12 miesięcy od ostatniego kontaktu</li>
+                    <li><strong>Realizacja usługi:</strong> przez okres trwania umowy oraz dodatkowo przez czas wynikający z przepisów prawa (np. 5 lat dla dokumentacji księgowej zgodnie z Ustawą o rachunkowości)</li>
+                    <li><strong>Marketing:</strong> do momentu wycofania zgody</li>
+                </ul>
+
+                <h2>5. Odbiorcy danych</h2>
+                <p>Twoje dane osobowe mogą być przekazywane następującym kategoriom odbiorców:</p>
+                <ul>
+                    <li><strong>Dostawcy usług IT</strong> – w celu utrzymania strony internetowej i formularzy kontaktowych</li>
+                    <li><strong>Biuro rachunkowe</strong> – w zakresie niezbędnym do prowadzenia księgowości</li>
+                    <li><strong>Organy publiczne</strong> – w przypadkach przewidzianych prawem (np. urząd skarbowy, ZUS)</li>
+                </ul>
+                <p>Wszystkie podmioty, którym przekazujemy dane, są zobowiązane do ich ochrony i przetwarzania zgodnie z RODO.</p>
+
+                <h2>6. Twoje prawa</h2>
+                <p>W związku z przetwarzaniem Twoich danych osobowych przysługują Ci następujące prawa:</p>
+                <ol>
+                    <li><strong>Prawo dostępu do danych</strong> – możesz uzyskać informację, jakie dane o Tobie przetwarzamy</li>
+                    <li><strong>Prawo do sprostowania danych</strong> – możesz poprawić dane, które są nieprawidłowe</li>
+                    <li><strong>Prawo do usunięcia danych</strong> ("prawo do bycia zapomnianym") – w określonych przypadkach możesz żądać usunięcia danych</li>
+                    <li><strong>Prawo do ograniczenia przetwarzania</strong> – możesz zażądać wstrzymania operacji na danych</li>
+                    <li><strong>Prawo do przenoszenia danych</strong> – możesz otrzymać swoje dane w ustrukturyzowanym formacie</li>
+                    <li><strong>Prawo do sprzeciwu</strong> – możesz wnieść sprzeciw wobec przetwarzania danych w celach marketingowych</li>
+                    <li><strong>Prawo do cofnięcia zgody</strong> – w każdej chwili możesz wycofać zgodę na przetwarzanie danych (nie wpływa to na zgodność z prawem przetwarzania dokonanego przed cofnięciem)</li>
+                </ol>
+                <p>
+                    Aby skorzystać z powyższych praw, skontaktuj się z nami telefonicznie pod numerem <strong>+48 881 578 996</strong>.
+                </p>
+
+                <h2>7. Prawo do skargi</h2>
+                <p>
+                    Jeśli uważasz, że przetwarzanie Twoich danych osobowych narusza przepisy RODO, masz prawo wnieść skargę do organu nadzorczego – <strong>Prezesa Urzędu Ochrony Danych Osobowych (PUODO)</strong>:
+                </p>
+                <p>
+                    <strong>Urząd Ochrony Danych Osobowych</strong><br>
+                    ul. Stawki 2, 00-193 Warszawa<br>
+                    <i class="fas fa-envelope mr-2"></i>kancelaria@uodo.gov.pl<br>
+                    <i class="fas fa-phone mr-2"></i>+48 22 531 03 00
+                </p>
+
+                <h2>8. Pliki cookies</h2>
+                <p>
+                    Nasza strona internetowa może wykorzystywać pliki cookies (ciasteczka) w celu zapewnienia prawidłowego działania serwisu oraz analizy ruchu. Cookies to małe pliki tekstowe zapisywane na Twoim urządzeniu.
+                </p>
+                <p><strong>Rodzaje używanych cookies:</strong></p>
+                <ul>
+                    <li><strong>Niezbędne cookies</strong> – zapewniają podstawowe funkcjonalności strony (np. zapamiętanie preferencji językowych)</li>
+                    <li><strong>Analityczne cookies</strong> – pomagają zrozumieć, jak użytkownicy korzystają ze strony (np. Google Analytics)</li>
+                </ul>
+                <p>
+                    Możesz w dowolnym momencie zmienić ustawienia cookies w swojej przeglądarce. Pamiętaj jednak, że wyłączenie niektórych cookies może wpłynąć na funkcjonalność strony.
+                </p>
+
+                <h2>9. Bezpieczeństwo danych</h2>
+                <p>
+                    Dokładamy wszelkich starań, aby chronić Twoje dane osobowe przed nieuprawnionym dostępem, utratą lub zniszczeniem. Stosujemy odpowiednie środki techniczne i organizacyjne, w tym:
+                </p>
+                <ul>
+                    <li>Szyfrowanie połączeń (SSL/TLS)</li>
+                    <li>Ograniczony dostęp do danych osobowych tylko dla upoważnionych osób</li>
+                    <li>Regularne kopie zapasowe danych</li>
+                </ul>
+
+                <h2>10. Zmiany w polityce prywatności</h2>
+                <p>
+                    Zastrzegamy sobie prawo do wprowadzania zmian w niniejszej Polityce Prywatności. O wszelkich istotnych zmianach poinformujemy poprzez komunikat na stronie głównej. Aktualna wersja dokumentu jest zawsze dostępna pod adresem <strong>brukblysk.pl/polityka-prywatnosci.html</strong>.
+                </p>
+
+                <h2>11. Kontakt</h2>
+                <p>
+                    W razie pytań dotyczących przetwarzania danych osobowych lub niniejszej Polityki Prywatności, prosimy o kontakt:
+                </p>
+                <p>
+                    <i class="fas fa-phone mr-2 neon-accent"></i><strong>Telefon:</strong> +48 881 578 996<br>
+                    <i class="fas fa-map-marker-alt mr-2 neon-accent"></i><strong>Obszar działania:</strong> Radom, Grójec, Białobrzegi i okolice
+                </p>
+
+                <div class="text-center mt-12">
+                    <a href="index.html" class="btn-back">
+                        <i class="fas fa-home"></i>
+                        Powrót na stronę główną
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- Kontakt -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 neon-accent">Kontakt</h3>
+                    <p class="mb-2"><i class="fas fa-phone mr-2"></i>+48 881 578 996</p>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Radom, Grójec, Białobrzegi</p>
+                </div>
+                
+                <!-- Usługi -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 neon-accent">Usługi</h3>
+                    <p class="mb-2">Mycie Kostki Brukowej</p>
+                    <p class="mb-2">Czyszczenie Elewacji</p>
+                    <p class="mb-2">Mycie Maszyn</p>
+                </div>
+                
+                <!-- Linki -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 neon-accent">Informacje</h3>
+                    <p class="mb-2"><a href="polityka-prywatnosci.html" class="hover:text-lime-400 transition-colors">Polityka Prywatności</a></p>
+                    <p class="mb-2"><a href="index.html#contact" class="hover:text-lime-400 transition-colors">Formularz Kontaktowy</a></p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 BrukBłysk. Wszelkie prawa zastrzeżone.</p>
+                <p class="text-sm mt-2">Profesjonalne czyszczenie zewnętrzne - Kostka, Elewacje, Maszyny</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

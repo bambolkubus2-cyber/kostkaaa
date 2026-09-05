@@ -179,6 +179,43 @@
             box-shadow: 0 6px 30px rgba(132, 250, 176, 0.7);
         }
         
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: rgba(132, 250, 176, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid #84fab0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #84fab0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(100px);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .scroll-to-top:hover {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #0a0a0a;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 32px rgba(132, 250, 176, 0.5);
+        }
+        
         @keyframes pulse {
             0%, 100% {
                 box-shadow: 0 4px 20px rgba(132, 250, 176, 0.5);
@@ -215,6 +252,34 @@
             }
         }
     </style>
+    
+    <!-- Structured Data - Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Czyszczenie zewnętrzne",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "BrukBłysk",
+        "telephone": "+48881578996",
+        "url": "https://brukblysk.pl"
+      },
+      "areaServed": ["Radom", "Grójec", "Białobrzegi"],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "8",
+        "highPrice": "20",
+        "priceCurrency": "PLN",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "8-20",
+          "priceCurrency": "PLN",
+          "unitText": "za m²"
+        }
+      }
+    }
+    </script>
 </head>
 <body>
 
@@ -360,7 +425,7 @@
             
             <!-- Logo -->
             <div class="text-center mb-8" data-aos="zoom-in">
-                <img src="assets/HERO.png" alt="BrukBłysk" class="mx-auto" style="max-width: 180px;">
+                <img src="assets/HERO.png" alt="BrukBłysk" loading="lazy" class="mx-auto" style="max-width: 180px;">
             </div>
             
             <div class="text-center mb-16" data-aos="fade-up">
@@ -703,13 +768,13 @@
                     <!-- Social Media Icons -->
                     <div class="flex justify-center gap-4 mt-8">
                         <a href="https://www.instagram.com/brukblyskradom/" target="_blank" class="btn-secondary py-4 px-6" title="Instagram">
-                            <img src="assets/ig.png" alt="Instagram" class="w-6 h-6">
+                            <img src="assets/ig.png" alt="Instagram" loading="lazy" class="w-6 h-6">
                         </a>
                         <a href="https://www.tiktok.com/@brukblyskradom" target="_blank" class="btn-secondary py-4 px-6" title="TikTok">
-                            <img src="assets/tt.png" alt="TikTok" class="w-6 h-6">
+                            <img src="assets/tt.png" alt="TikTok" loading="lazy" class="w-6 h-6">
                         </a>
                         <a href="https://www.facebook.com/profile.php?id=100066646310223&locale=pl_PL" target="_blank" class="btn-secondary py-4 px-6" title="Facebook">
-                            <img src="assets/fb.png" alt="Facebook" class="w-6 h-6">
+                            <img src="assets/fb.png" alt="Facebook" loading="lazy" class="w-6 h-6">
                         </a>
                     </div>
                 </div>
@@ -873,14 +938,41 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 border-t border-gray-800 mt-20">
-        <div class="max-w-6xl mx-auto text-center text-gray-500 text-sm">
-            <img src="assets/HERO.png" alt="BrukBłysk Logo" class="mx-auto mb-4" style="max-width: 200px; width: 100%; height: auto; opacity: 0.8;">
-            <p>&copy; 2026 BrukBłysk. Wszystkie prawa zastrzeżone.</p>
-            <p class="mt-2">Radom (+50km) | Grójec (+25km) | Białobrzegi (+30km)</p>
-            <p class="mt-4 text-xs opacity-70">
-                Kontaktując się z nami, wyrażasz zgodę na przetwarzanie podanych danych w celu udzielenia odpowiedzi i przygotowania oferty zgodnie z RODO. Twoje dane nie będą udostępniane osobom trzecim.
-            </p>
+    <footer class="bg-black text-white py-12 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- Kontakt -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 neon-accent">Kontakt</h3>
+                    <p class="mb-2"><i class="fas fa-phone mr-2"></i>+48 881 578 996</p>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Radom, Grójec, Białobrzegi</p>
+                </div>
+                
+                <!-- Usługi -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 neon-accent">Usługi</h3>
+                    <p class="mb-2">Mycie Kostki Brukowej</p>
+                    <p class="mb-2">Czyszczenie Elewacji</p>
+                    <p class="mb-2">Mycie Maszyn</p>
+                </div>
+                
+                <!-- Linki -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 neon-accent">Informacje</h3>
+                    <p class="mb-2"><a href="polityka-prywatnosci.html" class="hover:text-lime-400 transition-colors">Polityka Prywatności</a></p>
+                    <p class="mb-2"><a href="index.html#contact" class="hover:text-lime-400 transition-colors">Formularz Kontaktowy</a></p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 BrukBłysk. Wszelkie prawa zastrzeżone.</p>
+                <p class="text-sm mt-2">Profesjonalne czyszczenie zewnętrzne - Kostka, Elewacje, Maszyny</p>
+                <p class="text-sm mt-3">
+                    <a href="polityka-prywatnosci.html" class="text-lime-400 hover:text-lime-300 transition-colors">
+                        Polityka Prywatności
+                    </a>
+                </p>
+            </div>
         </div>
     </footer>
 
@@ -903,6 +995,11 @@
     <a href="tel:+48881578996" class="floating-phone" title="Zadzwoń">
         <i class="fas fa-phone-alt"></i>
     </a>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top" title="Wróć na górę">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -914,6 +1011,24 @@
             easing: 'ease-in-out',
             once: true,
             offset: 100
+        });
+        
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
         
         // Mobile Menu Toggle
