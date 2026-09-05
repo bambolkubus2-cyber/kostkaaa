@@ -252,4 +252,92 @@ window.addEventListener('load', checkStatsVisible);
 // Sprawdź też po 1 sekundzie (na wszelki wypadek)
 setTimeout(checkStatsVisible, 1000);
 
+// === LIGHTBOX GALLERY ===
+let currentImageIndex = 0;
+let galleryImages = [];
+
+function initLightbox() {
+    // Zbierz wszystkie obrazy z galerii
+    const galleryImgs = document.querySelectorAll('.gallery-image');
+    galleryImages = Array.from(galleryImgs);
+    
+    galleryImages.forEach((img, index) => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => openLightbox(index));
+    });
+}
+
+function openLightbox(index) {
+    currentImageIndex = index;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    
+    if (lightbox && lightboxImg) {
+        const img = galleryImages[currentImageIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        
+        if (lightboxCaption) {
+            lightboxCaption.textContent = img.alt || '';
+        }
+        
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+}
+
+function changeLightboxImage(direction) {
+    currentImageIndex += direction;
+    
+    // Loop around
+    if (currentImageIndex < 0) {
+        currentImageIndex = galleryImages.length - 1;
+    } else if (currentImageIndex >= galleryImages.length) {
+        currentImageIndex = 0;
+    }
+    
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    
+    if (lightboxImg) {
+        const img = galleryImages[currentImageIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        
+        if (lightboxCaption) {
+            lightboxCaption.textContent = img.alt || '';
+        }
+    }
+}
+
+// Keyboard navigation for lightbox
+document.addEventListener('keydown', function(e) {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox && lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+            changeLightboxImage(-1);
+        } else if (e.key === 'ArrowRight') {
+            changeLightboxImage(1);
+        }
+    }
+});
+
+// Make functions global
+window.closeLightbox = closeLightbox;
+window.changeLightboxImage = changeLightboxImage;
+
+// Initialize lightbox when page loads
+window.addEventListener('load', initLightbox);
+
 console.log('🚀 BrukBłysk - Strona załadowana pomyślnie!');
