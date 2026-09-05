@@ -203,4 +203,53 @@ window.addEventListener('scroll', function() {
     });
 }, { passive: true });
 
+// === ANIMATED COUNTERS ===
+function animateCounter(elementId, targetValue, duration, suffix = '', decimals = 0) {
+    const element = document.getElementById(elementId);
+    if (!element) {
+        console.error('Nie znaleziono elementu:', elementId);
+        return;
+    }
+    
+    const start = 0;
+    const increment = targetValue / (duration / 16); // 60fps
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= targetValue) {
+            current = targetValue;
+            clearInterval(timer);
+        }
+        element.textContent = current.toFixed(decimals) + suffix;
+    }, 16);
+}
+
+// Uruchom liczniki gdy użytkownik scrolluje do sekcji stats
+let countersAnimated = false;
+
+function checkStatsVisible() {
+    const statsSection = document.getElementById('counter-projects')?.closest('section');
+    if (!statsSection) return;
+    
+    const rect = statsSection.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+    
+    if (isVisible && !countersAnimated) {
+        countersAnimated = true;
+        
+        // Animuj liczniki
+        setTimeout(() => animateCounter('counter-projects', 31, 2000), 100);
+        setTimeout(() => animateCounter('counter-satisfaction', 100, 2000, '%'), 300);
+        setTimeout(() => animateCounter('counter-rating', 4.94, 2000, '', 2), 500);
+    }
+}
+
+// Sprawdź przy scroll i przy załadowaniu
+window.addEventListener('scroll', checkStatsVisible);
+window.addEventListener('load', checkStatsVisible);
+
+// Sprawdź też po 1 sekundzie (na wszelki wypadek)
+setTimeout(checkStatsVisible, 1000);
+
 console.log('🚀 BrukBłysk - Strona załadowana pomyślnie!');
