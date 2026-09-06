@@ -697,6 +697,22 @@ input::placeholder, textarea::placeholder {
     }
 }
 
+/* Mobile adjustments for video */
+@media (max-width: 768px) {
+    .video-container {
+        border-radius: 16px;
+    }
+    
+    .video-placeholder i {
+        font-size: 3rem;
+    }
+    
+    .video-placeholder p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
 /* === BEFORE/AFTER TOGGLE BUTTON VERSION === */
 .before-after-toggle {
     position: relative;
@@ -801,21 +817,43 @@ input::placeholder, textarea::placeholder {
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
+    .before-after-toggle {
+        border-radius: 16px;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    
     .before-after-image-container {
         padding-bottom: 100%; /* Square on mobile */
     }
     
     .before-after-label {
-        font-size: 0.9rem;
-        padding: 8px 18px;
-        top: 15px;
-        left: 15px;
+        font-size: 0.85rem;
+        padding: 6px 16px;
+        top: 12px;
+        left: 12px;
+        border-width: 2px;
     }
     
     .before-after-button {
-        font-size: 1rem;
-        padding: 14px 28px;
-        bottom: 20px;
+        font-size: 0.9rem;
+        padding: 12px 24px;
+        bottom: 15px;
+        white-space: nowrap;
+    }
+    
+    .before-after-button i {
+        font-size: 1.1rem;
+    }
+    
+    /* Fix for parent container padding on mobile */
+    .glass {
+        padding: 1rem !important;
+    }
+    
+    /* Fix for section spacing */
+    section#before-after .space-y-12 > div {
+        margin-bottom: 2rem !important;
     }
 }
 /* === LIGHTBOX === */
