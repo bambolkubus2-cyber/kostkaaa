@@ -9,6 +9,15 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
     initScrollToTop();
     initAOS();
+    
+    // Initialize before/after toggles
+    const toggles = document.querySelectorAll('.before-after-toggle');
+    toggles.forEach(toggle => {
+        toggle.setAttribute('data-state', 'before');
+    });
+    
+    // Show cookies banner if not accepted
+    showCookiesBanner();
 });
 
 // === MOBILE MENU TOGGLE ===
@@ -277,12 +286,48 @@ function toggleBeforeAfter(id) {
 // Make function global
 window.toggleBeforeAfter = toggleBeforeAfter;
 
-// Initialize all toggles to "before" state
-document.addEventListener('DOMContentLoaded', function() {
-    const toggles = document.querySelectorAll('.before-after-toggle');
-    toggles.forEach(toggle => {
-        toggle.setAttribute('data-state', 'before');
-    });
-});
+// === COOKIES BANNER ===
+function showCookiesBanner() {
+    // Check if user already accepted cookies
+    if (localStorage.getItem('cookiesAccepted')) {
+        return;
+    }
+    
+    // Show banner after 1 second
+    setTimeout(() => {
+        const banner = document.getElementById('cookies-banner');
+        if (banner) {
+            banner.classList.add('show');
+            
+            // Attach event listeners
+            const acceptBtn = banner.querySelector('.cookies-accept');
+            const declineBtn = banner.querySelector('.cookies-decline');
+            
+            if (acceptBtn) {
+                acceptBtn.addEventListener('click', acceptCookies);
+            }
+            if (declineBtn) {
+                declineBtn.addEventListener('click', declineCookies);
+            }
+        }
+    }, 1000);
+}
+
+function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    hideCookiesBanner();
+}
+
+function declineCookies() {
+    localStorage.setItem('cookiesAccepted', 'declined');
+    hideCookiesBanner();
+}
+
+function hideCookiesBanner() {
+    const banner = document.getElementById('cookies-banner');
+    if (banner) {
+        banner.classList.remove('show');
+    }
+}
 
 console.log('🚀 BrukBłysk - Strona załadowana pomyślnie!');

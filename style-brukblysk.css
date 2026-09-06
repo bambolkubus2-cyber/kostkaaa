@@ -35,31 +35,49 @@ body {
 /* Global Background Image */
 body::before {
     content: '';
-    position: fixed;
+    position: absolute; /* Zmiana z fixed na absolute dla mobile */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     background-image: url('assets/HERO1.PNG');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
     opacity: 0.25;
     z-index: -2;
     pointer-events: none;
 }
 
+/* Desktop - fixed background effect */
+@media (min-width: 769px) {
+    body::before {
+        position: fixed;
+        background-attachment: fixed;
+        min-height: 100%;
+    }
+}
+
 /* Dark Gradient Overlay */
 body::after {
     content: '';
-    position: fixed;
+    position: absolute; /* Zmiana z fixed na absolute dla mobile */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     background: rgba(10, 10, 10, 0.85);
     z-index: -1;
     pointer-events: none;
+}
+
+/* Desktop - fixed overlay */
+@media (min-width: 769px) {
+    body::after {
+        position: fixed;
+        min-height: 100%;
+    }
 }
 
 /* === STICKY NAVBAR === */
@@ -508,6 +526,175 @@ input::placeholder, textarea::placeholder {
 /* === UTILITIES === */
 .text-shadow-glow {
     text-shadow: 0 0 20px rgba(132, 250, 176, 0.5);
+}
+
+/* === COOKIES BANNER === */
+.cookies-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    border-top: 2px solid rgba(132, 250, 176, 0.3);
+    padding: 1.5rem;
+    z-index: 10000;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.cookies-banner.show {
+    transform: translateY(0);
+}
+
+.cookies-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.cookies-text {
+    flex: 1;
+    min-width: 250px;
+}
+
+.cookies-text h3 {
+    color: #84fab0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.cookies-text p {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.cookies-text a {
+    color: #84fab0;
+    text-decoration: underline;
+}
+
+.cookies-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cookies-btn {
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 1rem;
+}
+
+.cookies-accept {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    color: #0a0a0a;
+}
+
+.cookies-accept:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(132, 250, 176, 0.4);
+}
+
+.cookies-decline {
+    background: transparent;
+    color: #84fab0;
+    border: 2px solid rgba(132, 250, 176, 0.5);
+}
+
+.cookies-decline:hover {
+    background: rgba(132, 250, 176, 0.1);
+}
+
+@media (max-width: 768px) {
+    .cookies-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    
+    .cookies-buttons {
+        width: 100%;
+    }
+    
+    .cookies-btn {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+
+/* === VIDEO SECTION === */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
+}
+
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(132, 250, 176, 0.1) 0%, rgba(143, 211, 244, 0.1) 100%);
+    border: 2px dashed rgba(132, 250, 176, 0.3);
+    border-radius: 20px;
+}
+
+.video-placeholder i {
+    font-size: 4rem;
+    color: #84fab0;
+    margin-bottom: 1rem;
+    animation: videoPulse 2s ease-in-out infinite;
+}
+
+.video-placeholder p {
+    color: #84fab0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+@keyframes videoPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
 }
 
 /* === BEFORE/AFTER TOGGLE BUTTON VERSION === */
