@@ -126,57 +126,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// === FORM VALIDATION (jeśli istnieje formularz) ===
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = {};
-        formData.forEach((value, key) => {
-            data[key] = value;
-        });
-        
-        // Simple validation
-        if (!data.name || !data.phone || !data.message) {
-            alert('Proszę wypełnić wszystkie wymagane pola!');
-            return;
-        }
-        
-        // Phone validation (simple)
-        const phoneRegex = /^\+?[0-9\s\-()]{9,}$/;
-        if (!phoneRegex.test(data.phone)) {
-            alert('Proszę podać prawidłowy numer telefonu!');
-            return;
-        }
-        
-        // Show success modal or redirect
-        showSuccessModal();
-        
-        // Reset form
-        contactForm.reset();
-    });
-}
-
-// === SUCCESS MODAL ===
-function showSuccessModal() {
-    const modal = document.querySelector('.success-modal');
-    if (modal) {
-        modal.classList.add('active');
-        
-        // Auto close after 3 seconds
-        setTimeout(function() {
-            modal.classList.remove('active');
-            // Redirect to thank you page
-            window.location.href = 'dziekujemy.html';
-        }, 3000);
-    } else {
-        // Fallback if no modal
-        window.location.href = 'dziekujemy.html';
-    }
-}
+// === FORM VALIDATION - MOVED TO INLINE SCRIPT IN HTML ===
+// (kod formularza jest teraz bezpośrednio w index.html)
 
 // === LAZY LOADING IMAGES (modern browsers) ===
 if ('loading' in HTMLImageElement.prototype) {
@@ -203,54 +154,8 @@ window.addEventListener('scroll', function() {
     });
 }, { passive: true });
 
-// === ANIMATED COUNTERS ===
-function animateCounter(elementId, targetValue, duration, suffix = '', decimals = 0) {
-    const element = document.getElementById(elementId);
-    if (!element) {
-        console.error('Nie znaleziono elementu:', elementId);
-        return;
-    }
-    
-    const start = 0;
-    const increment = targetValue / (duration / 16); // 60fps
-    let current = start;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= targetValue) {
-            current = targetValue;
-            clearInterval(timer);
-        }
-        element.textContent = current.toFixed(decimals) + suffix;
-    }, 16);
-}
-
-// Uruchom liczniki gdy użytkownik scrolluje do sekcji stats
-let countersAnimated = false;
-
-function checkStatsVisible() {
-    const statsSection = document.getElementById('counter-projects')?.closest('section');
-    if (!statsSection) return;
-    
-    const rect = statsSection.getBoundingClientRect();
-    const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
-    
-    if (isVisible && !countersAnimated) {
-        countersAnimated = true;
-        
-        // Animuj liczniki
-        setTimeout(() => animateCounter('counter-projects', 31, 2000), 100);
-        setTimeout(() => animateCounter('counter-satisfaction', 100, 2000, '%'), 300);
-        setTimeout(() => animateCounter('counter-rating', 4.94, 2000, '', 2), 500);
-    }
-}
-
-// Sprawdź przy scroll i przy załadowaniu
-window.addEventListener('scroll', checkStatsVisible);
-window.addEventListener('load', checkStatsVisible);
-
-// Sprawdź też po 1 sekundzie (na wszelki wypadek)
-setTimeout(checkStatsVisible, 1000);
+// === ANIMATED COUNTERS - MOVED TO INLINE SCRIPT IN HTML ===
+// (kod liczników jest już w index.html)
 
 // === LIGHTBOX GALLERY ===
 let currentImageIndex = 0;
@@ -339,5 +244,45 @@ window.changeLightboxImage = changeLightboxImage;
 
 // Initialize lightbox when page loads
 window.addEventListener('load', initLightbox);
+
+// === BEFORE/AFTER TOGGLE BUTTON ===
+function toggleBeforeAfter(id) {
+    const container = document.querySelector(`[data-toggle-id="${id}"]`);
+    if (!container) return;
+    
+    const images = container.querySelectorAll('.before-after-img');
+    const label = container.querySelector('.before-after-label');
+    const button = container.querySelector('.before-after-button span');
+    
+    // Get current state
+    const currentState = container.getAttribute('data-state') || 'before';
+    
+    if (currentState === 'before') {
+        // Switch to AFTER
+        images[0].classList.remove('active');
+        images[1].classList.add('active');
+        label.textContent = 'PO';
+        button.textContent = 'Zobacz PRZED';
+        container.setAttribute('data-state', 'after');
+    } else {
+        // Switch to BEFORE
+        images[0].classList.add('active');
+        images[1].classList.remove('active');
+        label.textContent = 'PRZED';
+        button.textContent = 'Zobacz PO';
+        container.setAttribute('data-state', 'before');
+    }
+}
+
+// Make function global
+window.toggleBeforeAfter = toggleBeforeAfter;
+
+// Initialize all toggles to "before" state
+document.addEventListener('DOMContentLoaded', function() {
+    const toggles = document.querySelectorAll('.before-after-toggle');
+    toggles.forEach(toggle => {
+        toggle.setAttribute('data-state', 'before');
+    });
+});
 
 console.log('🚀 BrukBłysk - Strona załadowana pomyślnie!');

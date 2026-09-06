@@ -688,36 +688,92 @@
         </div>
     </section>
 
-    <!-- Before & After Section -->
+    <!-- Before & After Section WITH SLIDER -->
     <section id="before-after" class="py-20 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-black mb-4">
-                    Zobacz <span class="gradient-text">Nasze Realizacje</span>
+                    Zobacz <span class="gradient-text">Transformację</span>
                 </h2>
-                <p class="text-gray-400 text-lg">Efekty naszej pracy mówią same za siebie</p>
+                <p class="text-gray-400 text-lg">Przesuń suwak i zobacz różnicę! 🔥</p>
             </div>
             
-            <div class="max-w-3xl mx-auto text-center" data-aos="zoom-in" data-aos-delay="200">
-                <!-- Gallery Preview Box -->
-                <div class="glass rounded-3xl p-12 mb-8">
-                    <div class="mb-6">
-                        <i class="fas fa-images text-7xl gradient-text" style="filter: drop-shadow(0 0 20px rgba(132, 250, 176, 0.5));"></i>
+            <!-- Image Comparison WITH TOGGLE BUTTON -->
+            <div class="space-y-12">
+                
+                <!-- Realizacja 1 - Kostka Brukowa -->
+                <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass rounded-3xl p-6 md:p-8">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-2 text-center">
+                            <i class="fas fa-road gradient-text mr-2"></i>
+                            Kostka Brukowa - Podjazd
+                        </h3>
+                        <p class="text-gray-400 text-center mb-6">x m²</p>
+                        
+                        <!-- Before/After Container -->
+                        <div class="before-after-toggle" data-toggle-id="1">
+                            <div class="before-after-image-container">
+                                <!-- Images -->
+                                <img src="assets/przed1.png" alt="Kostka brukowa przed myciem" class="before-after-img active">
+                                <img src="assets/po1.png" alt="Kostka brukowa po myciu" class="before-after-img">
+                                
+                                <!-- Label -->
+                                <div class="before-after-label">PRZED</div>
+                                
+                                <!-- Toggle Button -->
+                                <button class="before-after-button" onclick="toggleBeforeAfter(1)">
+                                    <i class="fas fa-exchange-alt"></i>
+                                    <span>Zobacz PO</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <p class="text-center text-gray-500 mt-4 text-sm">
+                            <i class="fas fa-hand-pointer mr-2"></i>Kliknij przycisk aby zobaczyć efekt!
+                        </p>
                     </div>
-                    <h3 class="text-3xl font-bold mb-4">Galeria Realizacji</h3>
-                    <p class="text-gray-400 text-lg mb-8">
-                        Sprawdź zdjęcia przed i po myciu kostki brukowej.<br>
-                        Zobacz jak transformujemy posesje naszych klientów!
-                    </p>
-                    <a href="galeria.html" class="btn-primary text-xl inline-flex">
-                        <i class="fas fa-arrow-right"></i>
-                        Zobacz Galerię
-                    </a>
                 </div>
                 
-                <p class="text-gray-500 text-sm">
-                    <i class="fas fa-clock mr-2"></i>Regularnie dodajemy nowe zdjęcia z realizacji
-                </p>
+                <!-- Realizacja 2 - Taras -->
+                <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass rounded-3xl p-6 md:p-8">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-2 text-center">
+                            <i class="fas fa-road gradient-text mr-2"></i>
+                            Taras & Chodnik
+                        </h3>
+                        <p class="text-gray-400 text-center mb-6">x m²</p>
+                        
+                        <!-- Before/After Container -->
+                        <div class="before-after-toggle" data-toggle-id="2">
+                            <div class="before-after-image-container">
+                                <!-- Images -->
+                                <img src="assets/po1.png" alt="Taras przed myciem" class="before-after-img active">
+                                <img src="assets/przed1.png" alt="Taras po myciu" class="before-after-img">
+                                
+                                <!-- Label -->
+                                <div class="before-after-label">PRZED</div>
+                                
+                                <!-- Toggle Button -->
+                                <button class="before-after-button" onclick="toggleBeforeAfter(2)">
+                                    <i class="fas fa-exchange-alt"></i>
+                                    <span>Zobacz PO</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <p class="text-center text-gray-500 mt-4 text-sm">
+                            <i class="fas fa-hand-pointer mr-2"></i>Kliknij przycisk aby zobaczyć efekt!
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- CTA do Galerii -->
+                <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="300">
+                    <a href="galeria.html" class="btn-primary text-xl inline-flex">
+                        <i class="fas fa-images mr-2"></i>
+                        Zobacz Więcej Realizacji
+                    </a>
+                </div>
             </div>
         </div>
     </section>
