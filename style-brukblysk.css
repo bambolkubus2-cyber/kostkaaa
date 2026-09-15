@@ -979,3 +979,304 @@ input::placeholder, textarea::placeholder {
         top: -40px;
     }
 }
+
+
+/* ========================================
+   PREMIUM EFFECTS - BRUKBŁYSK 
+   ======================================== */
+
+/* === REALIZATION BADGES === */
+.realization-card {
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.realization-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(132, 250, 176, 0.3);
+}
+
+.badge-top {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    z-index: 10;
+}
+
+.badge-fire, .badge-new {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 900;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    animation: badgeBounce 2s ease-in-out infinite;
+}
+
+.badge-fire {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.badge-new {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes badgeBounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.05);
+    }
+}
+
+/* === INSTAGRAM GRID === */
+.instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .instagram-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.8rem;
+    }
+}
+
+.instagram-item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: #0a0a0a;
+}
+
+.instagram-real-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.instagram-item:hover .instagram-real-img {
+    transform: scale(1.1);
+}
+
+.instagram-label {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1.5rem;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    z-index: 2;
+    color: #84fab0;
+    border: 2px solid rgba(132, 250, 176, 0.3);
+    transition: all 0.3s ease;
+}
+
+.instagram-item:hover .instagram-label {
+    border-color: rgba(132, 250, 176, 0.8);
+    background: rgba(0, 0, 0, 0.95);
+}
+
+.instagram-item:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 15px 50px rgba(132, 250, 176, 0.4);
+    z-index: 10;
+}
+
+.instagram-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(132, 250, 176, 0.2) 0%, rgba(143, 211, 244, 0.2) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #84fab0;
+    border: 2px dashed rgba(132, 250, 176, 0.3);
+    transition: all 0.3s ease;
+}
+
+.instagram-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+.instagram-placeholder p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.instagram-item:hover .instagram-placeholder {
+    background: linear-gradient(135deg, rgba(132, 250, 176, 0.3) 0%, rgba(143, 211, 244, 0.3) 100%);
+    border-color: rgba(132, 250, 176, 0.6);
+}
+
+.instagram-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-item:hover .instagram-overlay {
+    opacity: 1;
+}
+
+.instagram-overlay i {
+    color: #ff6b6b;
+    animation: heartBeat 1s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* === SOCIAL BADGE === */
+.social-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-badge:hover {
+    background: rgba(132, 250, 176, 0.1);
+    border-color: rgba(132, 250, 176, 0.3);
+    color: #84fab0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(132, 250, 176, 0.3);
+}
+
+/* === STATS CARDS WITH ICONS === */
+.stat-card {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: visible;
+    margin-top: 40px;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 60px rgba(132, 250, 176, 0.4);
+}
+
+.stat-icon {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(132, 250, 176, 0.5);
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+.stat-icon i {
+    font-size: 1.5rem;
+    color: #0a0a0a;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 10px 30px rgba(132, 250, 176, 0.5);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+        box-shadow: 0 15px 40px rgba(132, 250, 176, 0.7);
+    }
+}
+
+.stat-card:hover .stat-icon {
+    animation: iconBounce 0.6s ease;
+}
+
+@keyframes iconBounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px) scale(1.15);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        top: -20px;
+    }
+    
+    .stat-icon i {
+        font-size: 1.2rem;
+    }
+    
+    .instagram-placeholder i {
+        font-size: 2rem;
+    }
+    
+    .instagram-placeholder p {
+        font-size: 0.9rem;
+    }
+}

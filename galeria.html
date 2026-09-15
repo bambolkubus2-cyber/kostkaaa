@@ -25,7 +25,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     
     <!-- BrukBłysk Custom Styles -->
-    <link rel="stylesheet" href="style-brukblysk.css?v=5">
+    <link rel="stylesheet" href="style-brukblysk.css?v=44">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -380,7 +380,7 @@
                 <h1 class="text-5xl md:text-6xl font-black mb-4">
                     <span class="gradient-text">Galeria</span> Realizacji
                 </h1>
-                <p class="text-gray-400 text-xl mb-8">Zdjęcia przed i po - kostka brukowa i elewacje</p>
+                <p class="text-gray-400 text-xl mb-8">Zdjęcia przed i po - kostka brukowa, elewacje i maszyny</p>
                 
                 <!-- Filtry Galerii -->
                 <div class="flex justify-center gap-4 flex-wrap">
@@ -389,6 +389,9 @@
                     </button>
                     <button onclick="filterGallery('elewacja')" class="filter-btn" data-filter="elewacja">
                         <i class="fas fa-building mr-2"></i>Elewacje
+                    </button>
+                    <button onclick="filterGallery('maszyny')" class="filter-btn" data-filter="maszyny">
+                        <i class="fas fa-tractor mr-2"></i>Maszyny
                     </button>
                 </div>
             </div>
@@ -416,9 +419,6 @@
                     <div class="text-center p-4">
                         <h4 class="text-xl font-bold mb-2">Realizacja #1</h4>
                         <p class="text-gray-400 text-sm mb-2">Kostka brukowa</p>
-                        <div class="flex justify-center gap-4 text-xs text-gray-500">
-                            <span><i class="fas fa-ruler-combined mr-1" style="color: #84fab0;"></i>x m²</span>
-                        </div>
                     </div>
                 </div>
 
@@ -443,9 +443,6 @@
                     <div class="text-center p-4">
                         <h4 class="text-xl font-bold mb-2">Realizacja #2</h4>
                         <p class="text-gray-400 text-sm mb-2">Kostka brukowa</p>
-                        <div class="flex justify-center gap-4 text-xs text-gray-500">
-                            <span><i class="fas fa-ruler-combined mr-1" style="color: #84fab0;"></i>x m²</span>
-                        </div>
                     </div>
                 </div>
 
@@ -470,9 +467,6 @@
                     <div class="text-center p-4">
                         <h4 class="text-xl font-bold mb-2">Realizacja #3</h4>
                         <p class="text-gray-400 text-sm mb-2">Kostka brukowa</p>
-                        <div class="flex justify-center gap-4 text-xs text-gray-500">
-                            <span><i class="fas fa-ruler-combined mr-1" style="color: #84fab0;"></i>x m²</span>
-                        </div>
                     </div>
                 </div>
                 
@@ -503,11 +497,8 @@
                         </div>
                     </div>
                     <div class="text-center p-4">
-                        <h4 class="text-xl font-bold mb-2">Realizacja Elewacja #1</h4>
+                        <h4 class="text-xl font-bold mb-2">Realizacja #1</h4>
                         <p class="text-gray-400 text-sm mb-2">Mycie elewacji</p>
-                        <div class="flex justify-center gap-4 text-xs text-gray-500">
-                            <span><i class="fas fa-ruler-combined mr-1" style="color: #84fab0;"></i>x m²</span>
-                        </div>
                     </div>
                 </div>
 
@@ -538,11 +529,8 @@
                         </div>
                     </div>
                     <div class="text-center p-4">
-                        <h4 class="text-xl font-bold mb-2">Realizacja Elewacja #2</h4>
+                        <h4 class="text-xl font-bold mb-2">Realizacja #2</h4>
                         <p class="text-gray-400 text-sm mb-2">Mycie elewacji</p>
-                        <div class="flex justify-center gap-4 text-xs text-gray-500">
-                            <span><i class="fas fa-ruler-combined mr-1" style="color: #84fab0;"></i>x m²</span>
-                        </div>
                     </div>
                 </div>
 
@@ -573,11 +561,104 @@
                         </div>
                     </div>
                     <div class="text-center p-4">
-                        <h4 class="text-xl font-bold mb-2">Realizacja Elewacja #3</h4>
+                        <h4 class="text-xl font-bold mb-2">Realizacja #3</h4>
                         <p class="text-gray-400 text-sm mb-2">Mycie elewacji</p>
-                        <div class="flex justify-center gap-4 text-xs text-gray-500">
-                            <span><i class="fas fa-ruler-combined mr-1" style="color: #84fab0;"></i>x m²</span>
+                    </div>
+                </div>
+
+                <!-- Realizacja Maszyny #1 -->
+                <div class="space-y-4 gallery-item-container" data-category="maszyny">
+                    <!-- PRZED -->
+                    <div class="glass rounded-3xl overflow-hidden gallery-item" data-aos="fade-up">
+                        <div class="relative">
+                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 px-4 py-2 rounded-xl font-bold z-10" style="color: #84fab0;">PRZED</h3>
+                            <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center" style="min-height: 250px;">
+                                <div class="text-center p-8">
+                                    <i class="fas fa-tractor text-4xl text-gray-600 mb-3"></i>
+                                    <p class="text-gray-500 text-sm">Zdjęcie wkrótce</p>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <!-- PO -->
+                    <div class="glass rounded-3xl overflow-hidden gallery-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative">
+                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 px-4 py-2 rounded-xl font-bold z-10" style="color: #84fab0;">PO</h3>
+                            <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center" style="min-height: 250px;">
+                                <div class="text-center p-8">
+                                    <i class="fas fa-tractor text-4xl text-gray-600 mb-3"></i>
+                                    <p class="text-gray-500 text-sm">Zdjęcie wkrótce</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center p-4">
+                        <h4 class="text-xl font-bold mb-2">Realizacja #1</h4>
+                        <p class="text-gray-400 text-sm mb-2">Mycie maszyn</p>
+                    </div>
+                </div>
+
+                <!-- Realizacja Maszyny #2 -->
+                <div class="space-y-4 gallery-item-container" data-category="maszyny">
+                    <!-- PRZED -->
+                    <div class="glass rounded-3xl overflow-hidden gallery-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative">
+                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 px-4 py-2 rounded-xl font-bold z-10" style="color: #84fab0;">PRZED</h3>
+                            <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center" style="min-height: 250px;">
+                                <div class="text-center p-8">
+                                    <i class="fas fa-tractor text-4xl text-gray-600 mb-3"></i>
+                                    <p class="text-gray-500 text-sm">Zdjęcie wkrótce</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- PO -->
+                    <div class="glass rounded-3xl overflow-hidden gallery-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative">
+                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 px-4 py-2 rounded-xl font-bold z-10" style="color: #84fab0;">PO</h3>
+                            <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center" style="min-height: 250px;">
+                                <div class="text-center p-8">
+                                    <i class="fas fa-tractor text-4xl text-gray-600 mb-3"></i>
+                                    <p class="text-gray-500 text-sm">Zdjęcie wkrótce</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center p-4">
+                        <h4 class="text-xl font-bold mb-2">Realizacja #2</h4>
+                        <p class="text-gray-400 text-sm mb-2">Mycie maszyn</p>
+                    </div>
+                </div>
+
+                <!-- Realizacja Maszyny #3 -->
+                <div class="space-y-4 gallery-item-container" data-category="maszyny">
+                    <!-- PRZED -->
+                    <div class="glass rounded-3xl overflow-hidden gallery-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="relative">
+                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 px-4 py-2 rounded-xl font-bold z-10" style="color: #84fab0;">PRZED</h3>
+                            <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center" style="min-height: 250px;">
+                                <div class="text-center p-8">
+                                    <i class="fas fa-tractor text-4xl text-gray-600 mb-3"></i>
+                                    <p class="text-gray-500 text-sm">Zdjęcie wkrótce</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- PO -->
+                    <div class="glass rounded-3xl overflow-hidden gallery-item" data-aos="fade-up" data-aos-delay="500">
+                        <div class="relative">
+                            <h3 class="absolute top-4 left-4 bg-black bg-opacity-80 px-4 py-2 rounded-xl font-bold z-10" style="color: #84fab0;">PO</h3>
+                            <div class="bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center" style="min-height: 250px;">
+                                <div class="text-center p-8">
+                                    <i class="fas fa-tractor text-4xl text-gray-600 mb-3"></i>
+                                    <p class="text-gray-500 text-sm">Zdjęcie wkrótce</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center p-4">
+                        <h4 class="text-xl font-bold mb-2">Realizacja #3</h4>
+                        <p class="text-gray-400 text-sm mb-2">Mycie maszyn</p>
                     </div>
                 </div>
             </div>
@@ -913,20 +994,48 @@
                 }
             });
             
-            // Filter items
+            // Filter items - force immediate display and refresh AOS
             items.forEach(item => {
                 if (category === 'all' || item.dataset.category === category) {
                     item.style.display = 'block';
+                    item.style.opacity = '1';
                     item.style.animation = 'fadeIn 0.5s ease-in-out';
+                    // Force reflow to trigger display
+                    item.offsetHeight;
                 } else {
                     item.style.display = 'none';
+                    item.style.opacity = '0';
                 }
             });
+            
+            // Refresh AOS animations for visible items
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+            
+            // Scroll to filter buttons section smoothly
+            const filterSection = document.querySelector('.filter-btn');
+            if (filterSection && filterSection.parentElement && filterSection.parentElement.parentElement) {
+                setTimeout(() => {
+                    filterSection.parentElement.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 150);
+            }
         }
         
-        // Initialize gallery with "kostka" filter on page load
+        // Initialize gallery - check URL params first, then default to "kostka"
         document.addEventListener('DOMContentLoaded', function() {
-            filterGallery('kostka');
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+            
+            if (categoryParam && ['kostka', 'elewacja', 'maszyny', 'all'].includes(categoryParam)) {
+                // Auto-filter based on URL parameter
+                setTimeout(() => {
+                    filterGallery(categoryParam);
+                }, 500);
+            } else {
+                // Default to "kostka" if no valid URL param
+                filterGallery('kostka');
+            }
         });
 
         // FAQ Accordion Toggle Function
@@ -1034,7 +1143,7 @@
     </div>
     
     <!-- BrukBłysk Custom Scripts -->
-    <script src="script-brukblysk.js?v=4"></script>
+    <script src="script-brukblysk.js?v=20"></script>
 </body>
 </html>
 >
