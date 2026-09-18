@@ -331,3 +331,92 @@ function hideCookiesBanner() {
 }
 
 console.log('🚀 BrukBłysk - Strona załadowana pomyślnie!');
+
+
+// === FLOATING PARTICLES IN HERO ===
+function createParticles() {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+    
+    // Create particles container
+    const particlesContainer = document.createElement('div');
+    particlesContainer.style.position = 'absolute';
+    particlesContainer.style.top = '0';
+    particlesContainer.style.left = '0';
+    particlesContainer.style.width = '100%';
+    particlesContainer.style.height = '100%';
+    particlesContainer.style.overflow = 'hidden';
+    particlesContainer.style.pointerEvents = 'none';
+    particlesContainer.style.zIndex = '1';
+    
+    // Create 20 particles
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = Math.random() * 4 + 2 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.background = 'rgba(132, 250, 176, 0.6)';
+        particle.style.borderRadius = '50%';
+        particle.style.boxShadow = '0 0 10px rgba(132, 250, 176, 0.8)';
+        
+        // Random position
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        
+        // Random animation
+        const duration = Math.random() * 10 + 15; // 15-25s
+        const delay = Math.random() * 5;
+        
+        particle.style.animation = `floatParticle ${duration}s ease-in-out ${delay}s infinite`;
+        
+        particlesContainer.appendChild(particle);
+    }
+    
+    hero.insertBefore(particlesContainer, hero.firstChild);
+}
+
+// Particle animation keyframes
+const particleStyle = document.createElement('style');
+particleStyle.textContent = `
+    @keyframes floatParticle {
+        0%, 100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.8;
+        }
+        50% {
+            transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) scale(1.2);
+            opacity: 1;
+        }
+        90% {
+            opacity: 0.8;
+        }
+    }
+`;
+document.head.appendChild(particleStyle);
+
+// Initialize particles when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', createParticles);
+} else {
+    createParticles();
+}
+
+// === SMOOTH SCROLL FOR INTERNAL LINKS ===
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href.length > 1) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
